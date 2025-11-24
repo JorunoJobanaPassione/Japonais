@@ -1,0 +1,862 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Apprendre le Japonais - Hiragana</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .container {
+            max-width: 600px;
+            width: 100%;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            padding: 30px;
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            color: #667eea;
+            text-align: center;
+            margin-bottom: 10px;
+            font-size: 24px;
+        }
+
+        .lesson-title {
+            text-align: center;
+            color: #764ba2;
+            font-size: 18px;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 8px;
+            background: #e0e0e0;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #667eea, #764ba2);
+            border-radius: 10px;
+            transition: width 0.3s ease;
+        }
+
+        .step-container {
+            min-height: 350px;
+            padding: 20px 0;
+        }
+
+        .step-title {
+            font-size: 20px;
+            color: #333;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .hiragana-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+
+        .hiragana-card {
+            background: #f8f9fa;
+            border: 2px solid #e0e0e0;
+            border-radius: 12px;
+            padding: 20px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .hiragana-char {
+            font-size: 36px;
+            color: #333;
+            margin-bottom: 8px;
+        }
+
+        .romaji {
+            font-size: 16px;
+            color: #667eea;
+            font-weight: 600;
+        }
+
+        .option-button {
+            width: 100%;
+            padding: 18px;
+            margin: 10px 0;
+            font-size: 20px;
+            background: #f8f9fa;
+            border: 2px solid #e0e0e0;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+
+        .option-button:active {
+            transform: scale(0.98);
+        }
+
+        .option-button.selected {
+            background: #667eea;
+            color: white;
+            border-color: #667eea;
+        }
+
+        .option-button.correct {
+            background: #4caf50;
+            color: white;
+            border-color: #4caf50;
+        }
+
+        .option-button.incorrect {
+            background: #f44336;
+            color: white;
+            border-color: #f44336;
+        }
+
+        .question {
+            font-size: 18px;
+            color: #333;
+            margin: 20px 0;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 12px;
+            line-height: 1.6;
+        }
+
+        .japanese-text {
+            font-size: 28px;
+            text-align: center;
+            margin: 20px 0;
+            padding: 30px;
+            background: #f8f9fa;
+            border-radius: 12px;
+            color: #333;
+        }
+
+        .feedback {
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 12px;
+            text-align: center;
+            font-weight: 600;
+            display: none;
+        }
+
+        .feedback.success {
+            background: #c8e6c9;
+            color: #2e7d32;
+            display: block;
+        }
+
+        .feedback.error {
+            background: #ffcdd2;
+            color: #c62828;
+            display: block;
+        }
+
+        .button-group {
+            display: flex;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .btn {
+            flex: 1;
+            padding: 16px;
+            font-size: 16px;
+            font-weight: 600;
+            border: none;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary {
+            background: #667eea;
+            color: white;
+        }
+
+        .btn-primary:active {
+            background: #5568d3;
+            transform: scale(0.98);
+        }
+
+        .btn-secondary {
+            background: #e0e0e0;
+            color: #333;
+        }
+
+        .btn-secondary:active {
+            background: #d0d0d0;
+            transform: scale(0.98);
+        }
+
+        .btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        .score-display {
+            text-align: center;
+            font-size: 18px;
+            color: #667eea;
+            font-weight: 600;
+            margin-top: 20px;
+        }
+
+        .instruction {
+            color: #666;
+            font-size: 14px;
+            margin-bottom: 15px;
+            font-style: italic;
+        }
+
+        .lesson-selector {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .lesson-btn {
+            flex: 1;
+            padding: 12px;
+            border: 2px solid #667eea;
+            background: white;
+            color: #667eea;
+            border-radius: 10px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .lesson-btn.active {
+            background: #667eea;
+            color: white;
+        }
+
+        .lesson-btn:active {
+            transform: scale(0.95);
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 20px;
+            }
+
+            h1 {
+                font-size: 20px;
+            }
+
+            .hiragana-grid {
+                grid-template-columns: repeat(auto-fit, minmax(60px, 1fr));
+                gap: 10px;
+            }
+
+            .hiragana-char {
+                font-size: 28px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🇯🇵 Apprendre les Hiragana</h1>
+
+        <div class="lesson-selector" id="lessonSelector"></div>
+
+        <div class="lesson-title" id="lessonTitle">Leçon 1 : Voyelles + K</div>
+
+        <div class="progress-bar">
+            <div class="progress-fill" id="progressBar"></div>
+        </div>
+
+        <div class="step-container" id="stepContainer"></div>
+
+        <div class="feedback" id="feedback"></div>
+
+        <div class="button-group">
+            <button class="btn btn-primary" id="nextBtn">Suivant</button>
+        </div>
+
+        <div class="score-display" id="scoreDisplay">Score : 0/6</div>
+    </div>
+
+    <script>
+        // ============= DONNÉES DES LEÇONS =============
+        const lessons = [
+            {
+                id: 1,
+                title: "Leçon 1 : Voyelles + K",
+                hiragana: [
+                    { char: 'あ', romaji: 'a' },
+                    { char: 'い', romaji: 'i' },
+                    { char: 'う', romaji: 'u' },
+                    { char: 'え', romaji: 'e' },
+                    { char: 'お', romaji: 'o' },
+                    { char: 'か', romaji: 'ka' },
+                    { char: 'き', romaji: 'ki' },
+                    { char: 'く', romaji: 'ku' },
+                    { char: 'け', romaji: 'ke' },
+                    { char: 'こ', romaji: 'ko' }
+                ],
+                steps: [
+                    {
+                        type: 'recognition',
+                        title: 'Étape 1 : Reconnaissance',
+                        instruction: 'Voici les hiragana que nous allons apprendre.',
+                        autoNext: true
+                    },
+                    {
+                        type: 'classification',
+                        title: 'Étape 2 : Trouve l\'intrus',
+                        instruction: 'Un de ces caractères n\'appartient pas au même groupe.',
+                        question: 'Lequel est l\'intrus ?',
+                        options: ['あ', 'い', 'う', 'か'],
+                        correct: 'か',
+                        explanation: 'か (ka) est l\'intrus car c\'est le seul de la série K.'
+                    },
+                    {
+                        type: 'quiz',
+                        title: 'Étape 3 : Écriture mentale',
+                        instruction: 'Sélectionne le bon hiragana',
+                        question: 'Comment écris-tu "ki" en hiragana ?',
+                        options: ['き', 'か', 'く', 'け'],
+                        correct: 'き',
+                        explanation: 'き se prononce "ki".'
+                    },
+                    {
+                        type: 'reading',
+                        title: 'Étape 4 : Lecture',
+                        instruction: 'Lis ce mot et devine sa signification',
+                        text: 'あき',
+                        question: 'Que signifie ce mot ?',
+                        options: ['Automne', 'Printemps', 'Été', 'Hiver'],
+                        correct: 'Automne',
+                        explanation: 'あき (aki) signifie "automne".'
+                    },
+                    {
+                        type: 'dialogue',
+                        title: 'Étape 5 : Mini-texte',
+                        instruction: 'Lis ce petit texte',
+                        text: 'あおい うみ\nあかい かお',
+                        translation: 'Une mer bleue (aoi umi)\nUn visage rouge (akai kao)',
+                        question: 'Combien de couleurs sont mentionnées ?',
+                        options: ['1', '2', '3', '4'],
+                        correct: '2',
+                        explanation: 'あおい (bleu) et あかい (rouge) = 2 couleurs.'
+                    },
+                    {
+                        type: 'translation',
+                        title: 'Étape 6 : Traduction',
+                        instruction: 'Trouve la bonne traduction',
+                        question: 'Comment dit-on "eau" en japonais ?',
+                        text: '(ue = eau courante)',
+                        options: ['うえ', 'あい', 'いえ', 'おい'],
+                        correct: 'うえ',
+                        explanation: 'うえ (ue) signifie "eau courante".'
+                    }
+                ]
+            },
+            {
+                id: 2,
+                title: "Leçon 2 : S + T",
+                hiragana: [
+                    { char: 'さ', romaji: 'sa' },
+                    { char: 'し', romaji: 'shi' },
+                    { char: 'す', romaji: 'su' },
+                    { char: 'せ', romaji: 'se' },
+                    { char: 'そ', romaji: 'so' },
+                    { char: 'た', romaji: 'ta' },
+                    { char: 'ち', romaji: 'chi' },
+                    { char: 'つ', romaji: 'tsu' },
+                    { char: 'て', romaji: 'te' },
+                    { char: 'と', romaji: 'to' }
+                ],
+                steps: [
+                    {
+                        type: 'recognition',
+                        title: 'Étape 1 : Reconnaissance',
+                        instruction: 'Découvre les séries S et T.',
+                        autoNext: true
+                    },
+                    {
+                        type: 'classification',
+                        title: 'Étape 2 : Trouve l\'intrus',
+                        instruction: 'Un caractère ne fait pas partie du groupe.',
+                        question: 'Lequel est l\'intrus ?',
+                        options: ['さ', 'し', 'す', 'た'],
+                        correct: 'た',
+                        explanation: 'た (ta) est de la série T, les autres sont de la série S.'
+                    },
+                    {
+                        type: 'quiz',
+                        title: 'Étape 3 : Écriture mentale',
+                        instruction: 'Sélectionne le bon hiragana',
+                        question: 'Comment écris-tu "chi" en hiragana ?',
+                        options: ['ち', 'し', 'つ', 'て'],
+                        correct: 'ち',
+                        explanation: 'ち se prononce "chi".'
+                    },
+                    {
+                        type: 'reading',
+                        title: 'Étape 4 : Lecture',
+                        instruction: 'Lis ce mot',
+                        text: 'すし',
+                        question: 'Que signifie ce mot ?',
+                        options: ['Sushi', 'Saké', 'Soupe', 'Thé'],
+                        correct: 'Sushi',
+                        explanation: 'すし (sushi) désigne le plat japonais.'
+                    },
+                    {
+                        type: 'dialogue',
+                        title: 'Étape 5 : Mini-texte',
+                        instruction: 'Lis cette phrase',
+                        text: 'ちいさい いえ',
+                        translation: 'Une petite maison (chiisai ie)',
+                        question: 'Que décrit cette phrase ?',
+                        options: ['Une maison', 'Un chat', 'Une voiture', 'Un arbre'],
+                        correct: 'Une maison',
+                        explanation: 'いえ (ie) signifie "maison".'
+                    },
+                    {
+                        type: 'translation',
+                        title: 'Étape 6 : Traduction',
+                        instruction: 'Trouve la bonne traduction',
+                        question: 'Comment dit-on "étoile" ?',
+                        text: '(hoshi = étoile)',
+                        options: ['ほし', 'そと', 'つき', 'たこ'],
+                        correct: 'ほし',
+                        explanation: 'ほし (hoshi) signifie "étoile".'
+                    }
+                ]
+            },
+            {
+                id: 3,
+                title: "Leçon 3 : N + H",
+                hiragana: [
+                    { char: 'な', romaji: 'na' },
+                    { char: 'に', romaji: 'ni' },
+                    { char: 'ぬ', romaji: 'nu' },
+                    { char: 'ね', romaji: 'ne' },
+                    { char: 'の', romaji: 'no' },
+                    { char: 'は', romaji: 'ha' },
+                    { char: 'ひ', romaji: 'hi' },
+                    { char: 'ふ', romaji: 'fu' },
+                    { char: 'へ', romaji: 'he' },
+                    { char: 'ほ', romaji: 'ho' }
+                ],
+                steps: [
+                    {
+                        type: 'recognition',
+                        title: 'Étape 1 : Reconnaissance',
+                        instruction: 'Découvre les séries N et H.',
+                        autoNext: true
+                    },
+                    {
+                        type: 'classification',
+                        title: 'Étape 2 : Trouve l\'intrus',
+                        instruction: 'Quel caractère est différent ?',
+                        question: 'Lequel est l\'intrus ?',
+                        options: ['な', 'に', 'ぬ', 'は'],
+                        correct: 'は',
+                        explanation: 'は (ha) est de la série H, les autres sont de la série N.'
+                    },
+                    {
+                        type: 'quiz',
+                        title: 'Étape 3 : Écriture mentale',
+                        instruction: 'Sélectionne le bon hiragana',
+                        question: 'Comment écris-tu "fu" en hiragana ?',
+                        options: ['ふ', 'は', 'ひ', 'へ'],
+                        correct: 'ふ',
+                        explanation: 'ふ se prononce "fu".'
+                    },
+                    {
+                        type: 'reading',
+                        title: 'Étape 4 : Lecture',
+                        instruction: 'Lis ce mot',
+                        text: 'はな',
+                        question: 'Que signifie ce mot ?',
+                        options: ['Fleur', 'Nez', 'Les deux', 'Aucun'],
+                        correct: 'Les deux',
+                        explanation: 'はな (hana) signifie "fleur" et "nez" selon le contexte.'
+                    },
+                    {
+                        type: 'dialogue',
+                        title: 'Étape 5 : Mini-texte',
+                        instruction: 'Lis cette phrase',
+                        text: 'ねこ の なまえ は なな',
+                        translation: 'Le nom du chat est Nana (neko no namae ha nana)',
+                        question: 'De quoi parle cette phrase ?',
+                        options: ['D\'un chat', 'D\'un chien', 'D\'un oiseau', 'D\'un poisson'],
+                        correct: 'D\'un chat',
+                        explanation: 'ねこ (neko) signifie "chat".'
+                    },
+                    {
+                        type: 'translation',
+                        title: 'Étape 6 : Traduction',
+                        instruction: 'Trouve la bonne traduction',
+                        question: 'Comment dit-on "feu" ?',
+                        text: '(hi = feu)',
+                        options: ['ひ', 'へ', 'ほ', 'は'],
+                        correct: 'ひ',
+                        explanation: 'ひ (hi) signifie "feu".'
+                    }
+                ]
+            }
+        ];
+
+        // ============= VARIABLES GLOBALES =============
+        let currentLessonIndex = 0;
+        let currentStep = 0;
+        let score = 0;
+        let answered = false;
+        let userAnswer = null;
+        let wrongAnswers = [];
+        let isReviewing = false;
+
+        // ============= ÉLÉMENTS DOM =============
+        const stepContainer = document.getElementById('stepContainer');
+        const feedback = document.getElementById('feedback');
+        const nextBtn = document.getElementById('nextBtn');
+        const scoreDisplay = document.getElementById('scoreDisplay');
+        const progressBar = document.getElementById('progressBar');
+        const lessonTitle = document.getElementById('lessonTitle');
+        const lessonSelector = document.getElementById('lessonSelector');
+
+        // ============= FONCTIONS UTILITAIRES =============
+
+        // Mélanger un tableau (Fisher-Yates shuffle)
+        function shuffleArray(array) {
+            const newArray = [...array];
+            for (let i = newArray.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [newArray[i], newArray[j]] = [newArray[j], newArray[i]];
+            }
+            return newArray;
+        }
+
+        // Obtenir la leçon actuelle
+        function getCurrentLesson() {
+            return lessons[currentLessonIndex];
+        }
+
+        // ============= INITIALISATION =============
+        function init() {
+            renderLessonSelector();
+            renderStep();
+            updateProgress();
+        }
+
+        // Rendu du sélecteur de leçons
+        function renderLessonSelector() {
+            lessonSelector.innerHTML = '';
+            lessons.forEach((lesson, index) => {
+                const btn = document.createElement('button');
+                btn.className = 'lesson-btn' + (index === currentLessonIndex ? ' active' : '');
+                btn.textContent = `L${lesson.id}`;
+                btn.onclick = () => switchLesson(index);
+                lessonSelector.appendChild(btn);
+            });
+        }
+
+        // Changer de leçon
+        function switchLesson(index) {
+            currentLessonIndex = index;
+            currentStep = 0;
+            score = 0;
+            wrongAnswers = [];
+            isReviewing = false;
+            answered = false;
+
+            const lesson = getCurrentLesson();
+            lessonTitle.textContent = lesson.title;
+            scoreDisplay.textContent = `Score : 0/${lesson.steps.length}`;
+
+            renderLessonSelector();
+            renderStep();
+            updateProgress();
+        }
+
+        // Mise à jour de la barre de progression
+        function updateProgress() {
+            const lesson = getCurrentLesson();
+            const progress = ((currentStep + 1) / lesson.steps.length) * 100;
+            progressBar.style.width = progress + '%';
+        }
+
+        // ============= RENDU DES ÉTAPES =============
+        function renderStep() {
+            const lesson = getCurrentLesson();
+            const step = lesson.steps[currentStep];
+            stepContainer.innerHTML = '';
+            feedback.style.display = 'none';
+            feedback.className = 'feedback';
+            answered = false;
+            userAnswer = null;
+
+            // Titre de l'étape
+            const title = document.createElement('div');
+            title.className = 'step-title';
+            title.textContent = step.title;
+            stepContainer.appendChild(title);
+
+            // Instruction
+            const instruction = document.createElement('div');
+            instruction.className = 'instruction';
+            instruction.textContent = step.instruction;
+            stepContainer.appendChild(instruction);
+
+            // Rendu selon le type d'étape
+            switch (step.type) {
+                case 'recognition':
+                    renderRecognition(lesson.hiragana);
+                    break;
+                default:
+                    renderQuizStyle(step);
+                    break;
+            }
+
+            nextBtn.disabled = !step.autoNext;
+        }
+
+        // Étape 1 : Reconnaissance
+        function renderRecognition(hiraganaList) {
+            const grid = document.createElement('div');
+            grid.className = 'hiragana-grid';
+
+            hiraganaList.forEach(item => {
+                const card = document.createElement('div');
+                card.className = 'hiragana-card';
+                card.innerHTML = `
+                    <div class="hiragana-char">${item.char}</div>
+                    <div class="romaji">${item.romaji}</div>
+                `;
+                grid.appendChild(card);
+            });
+
+            stepContainer.appendChild(grid);
+        }
+
+        // Rendu style quiz (tous les autres types)
+        function renderQuizStyle(step) {
+            // Texte japonais
+            if (step.text) {
+                const textDiv = document.createElement('div');
+                textDiv.className = 'japanese-text';
+                textDiv.innerHTML = step.text.replace(/\n/g, '<br>');
+                stepContainer.appendChild(textDiv);
+            }
+
+            // Traduction
+            if (step.translation) {
+                const translation = document.createElement('div');
+                translation.className = 'instruction';
+                translation.innerHTML = step.translation.replace(/\n/g, '<br>');
+                translation.style.textAlign = 'center';
+                translation.style.marginTop = '10px';
+                stepContainer.appendChild(translation);
+            }
+
+            // Question
+            const questionDiv = document.createElement('div');
+            questionDiv.className = 'question';
+            questionDiv.textContent = step.question;
+            stepContainer.appendChild(questionDiv);
+
+            // MÉLANGER LES OPTIONS
+            const shuffledOptions = shuffleArray(step.options);
+
+            // Options
+            shuffledOptions.forEach(option => {
+                const btn = document.createElement('button');
+                btn.className = 'option-button';
+                btn.textContent = option;
+                btn.onclick = () => selectOption(btn, option, step.correct, step.explanation);
+                stepContainer.appendChild(btn);
+            });
+        }
+
+        // ============= LOGIQUE DE RÉPONSE =============
+        function selectOption(button, selected, correct, explanation) {
+            if (answered) return;
+
+            const allButtons = stepContainer.querySelectorAll('.option-button');
+            allButtons.forEach(btn => btn.classList.remove('selected'));
+
+            button.classList.add('selected');
+            userAnswer = selected;
+
+            checkAnswer(correct, explanation, button);
+        }
+
+        function checkAnswer(correct, explanation, button) {
+            if (answered) return;
+
+            const isCorrect = userAnswer === correct;
+
+            if (isCorrect) {
+                button.classList.add('correct');
+                score++;
+                showFeedback(true, 'Correct ! ' + explanation);
+            } else {
+                button.classList.add('incorrect');
+                if (!isReviewing) {
+                    wrongAnswers.push(currentStep);
+                }
+
+                // Montrer la bonne réponse
+                const allButtons = stepContainer.querySelectorAll('.option-button');
+                allButtons.forEach(btn => {
+                    if (btn.textContent === correct) {
+                        btn.classList.add('correct');
+                    }
+                });
+
+                showFeedback(false, explanation || 'La bonne réponse était : ' + correct);
+            }
+
+            answered = true;
+            updateScore();
+            nextBtn.disabled = false;
+        }
+
+        function showFeedback(success, message) {
+            feedback.textContent = message;
+            feedback.className = 'feedback ' + (success ? 'success' : 'error');
+        }
+
+        function updateScore() {
+            const lesson = getCurrentLesson();
+            scoreDisplay.textContent = `Score : ${score}/${lesson.steps.length}`;
+        }
+
+        // ============= NAVIGATION =============
+        nextBtn.addEventListener('click', () => {
+            const lesson = getCurrentLesson();
+
+            if (currentStep < lesson.steps.length - 1) {
+                currentStep++;
+                renderStep();
+                updateProgress();
+            } else {
+                showFinalScore();
+            }
+        });
+
+        // ============= ÉCRANS FINAUX =============
+        function showFinalScore() {
+            if (wrongAnswers.length > 0 && !isReviewing) {
+                showReviewScreen();
+            } else {
+                const lesson = getCurrentLesson();
+                const isLastLesson = currentLessonIndex === lessons.length - 1;
+
+                stepContainer.innerHTML = `
+                    <div style="text-align: center; padding: 40px 0;">
+                        <div class="step-title">🎉 Leçon terminée !</div>
+                        <div style="font-size: 48px; color: #667eea; margin: 30px 0;">
+                            ${score}/${lesson.steps.length}
+                        </div>
+                        <div class="question">
+                            ${score === lesson.steps.length
+                                ? 'Parfait ! Tu maîtrises cette leçon !'
+                                : score >= 4
+                                ? 'Bien joué ! Continue à pratiquer.'
+                                : 'Continue tes efforts, tu vas y arriver !'}
+                        </div>
+                        <button class="btn btn-primary" onclick="restartLesson()" style="margin-top: 20px; width: 100%;">
+                            Recommencer la leçon
+                        </button>
+                        ${!isLastLesson ? `
+                            <button class="btn btn-secondary" onclick="nextLesson()" style="margin-top: 10px; width: 100%;">
+                                Leçon suivante →
+                            </button>
+                        ` : ''}
+                    </div>
+                `;
+                nextBtn.style.display = 'none';
+                feedback.style.display = 'none';
+            }
+        }
+
+        function showReviewScreen() {
+            stepContainer.innerHTML = `
+                <div style="text-align: center; padding: 30px 0;">
+                    <div class="step-title">📝 Révision des erreurs</div>
+                    <div class="question">
+                        Tu as fait ${wrongAnswers.length} erreur${wrongAnswers.length > 1 ? 's' : ''}.<br>
+                        Veux-tu les revoir ?
+                    </div>
+                    <button class="btn btn-primary" onclick="startReview()" style="margin-top: 20px; width: 100%;">
+                        Revoir mes erreurs
+                    </button>
+                    <button class="btn btn-secondary" onclick="skipReview()" style="margin-top: 10px; width: 100%;">
+                        Passer à la suite
+                    </button>
+                </div>
+            `;
+            nextBtn.style.display = 'none';
+            feedback.style.display = 'none';
+        }
+
+        function startReview() {
+            isReviewing = true;
+            currentStep = wrongAnswers[0];
+            wrongAnswers.shift();
+            nextBtn.style.display = 'block';
+            renderStep();
+            updateProgress();
+        }
+
+        function skipReview() {
+            wrongAnswers = [];
+            showFinalScore();
+        }
+
+        function restartLesson() {
+            currentStep = 0;
+            score = 0;
+            answered = false;
+            wrongAnswers = [];
+            isReviewing = false;
+            nextBtn.style.display = 'block';
+            updateScore();
+            renderStep();
+            updateProgress();
+        }
+
+        function nextLesson() {
+            if (currentLessonIndex < lessons.length - 1) {
+                switchLesson(currentLessonIndex + 1);
+            }
+        }
+
+        // ============= DÉMARRAGE =============
+        init();
+    </script>
+</body>
+</html>
