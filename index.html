@@ -302,7 +302,7 @@
             <button class="btn btn-primary" id="nextBtn">Suivant</button>
         </div>
 
-        <div class="score-display" id="scoreDisplay">Score : 0/6</div>
+        <div class="score-display" id="scoreDisplay">Score : 0/10</div>
     </div>
 
     <script>
@@ -378,6 +378,44 @@
                         options: ['うえ', 'あい', 'いえ', 'おい'],
                         correct: 'うえ',
                         explanation: 'うえ (ue) signifie "eau courante".'
+                    },
+                    {
+                        type: 'quiz',
+                        title: 'Étape 7 : Sons similaires',
+                        instruction: 'Attention aux sons proches !',
+                        question: 'Lequel est "e" (et non "i") ?',
+                        options: ['え', 'い', 'お', 'あ'],
+                        correct: 'え',
+                        explanation: 'え se prononce "e", い se prononce "i".'
+                    },
+                    {
+                        type: 'reading',
+                        title: 'Étape 8 : Lecture',
+                        instruction: 'Lis ce mot',
+                        text: 'かお',
+                        question: 'Que signifie ce mot ?',
+                        options: ['Visage', 'Chat', 'Chien', 'Oiseau'],
+                        correct: 'Visage',
+                        explanation: 'かお (kao) signifie "visage".'
+                    },
+                    {
+                        type: 'translation',
+                        title: 'Étape 9 : Vocabulaire',
+                        instruction: 'Trouve la traduction',
+                        question: 'Comment dit-on "clé" ?',
+                        text: '(kagi = clé)',
+                        options: ['かぎ', 'かき', 'かこ', 'かけ'],
+                        correct: 'かぎ',
+                        explanation: 'かぎ (kagi) signifie "clé".'
+                    },
+                    {
+                        type: 'quiz',
+                        title: 'Étape 10 : Quiz final',
+                        instruction: 'Révision de la leçon',
+                        question: 'Quel hiragana se prononce "ko" ?',
+                        options: ['こ', 'か', 'く', 'き'],
+                        correct: 'こ',
+                        explanation: 'こ se prononce "ko".'
                     }
                 ]
             },
@@ -451,6 +489,44 @@
                         options: ['ほし', 'そと', 'つき', 'たこ'],
                         correct: 'ほし',
                         explanation: 'ほし (hoshi) signifie "étoile".'
+                    },
+                    {
+                        type: 'quiz',
+                        title: 'Étape 7 : Sons proches',
+                        instruction: 'Distingue bien les sons',
+                        question: 'Lequel est "tsu" (et non "su") ?',
+                        options: ['つ', 'す', 'て', 'せ'],
+                        correct: 'つ',
+                        explanation: 'つ se prononce "tsu", す se prononce "su".'
+                    },
+                    {
+                        type: 'reading',
+                        title: 'Étape 8 : Lecture',
+                        instruction: 'Lis ce mot',
+                        text: 'そと',
+                        question: 'Que signifie ce mot ?',
+                        options: ['Dehors', 'Dedans', 'Ici', 'Là-bas'],
+                        correct: 'Dehors',
+                        explanation: 'そと (soto) signifie "dehors, extérieur".'
+                    },
+                    {
+                        type: 'translation',
+                        title: 'Étape 9 : Vocabulaire',
+                        instruction: 'Trouve la traduction',
+                        question: 'Comment dit-on "main" ?',
+                        text: '(te = main)',
+                        options: ['て', 'た', 'ち', 'と'],
+                        correct: 'て',
+                        explanation: 'て (te) signifie "main".'
+                    },
+                    {
+                        type: 'quiz',
+                        title: 'Étape 10 : Quiz final',
+                        instruction: 'Révision de la leçon',
+                        question: 'Quel hiragana se prononce "sa" ?',
+                        options: ['さ', 'し', 'す', 'せ'],
+                        correct: 'さ',
+                        explanation: 'さ se prononce "sa".'
                     }
                 ]
             },
@@ -524,6 +600,44 @@
                         options: ['ひ', 'へ', 'ほ', 'は'],
                         correct: 'ひ',
                         explanation: 'ひ (hi) signifie "feu".'
+                    },
+                    {
+                        type: 'quiz',
+                        title: 'Étape 7 : Sons proches',
+                        instruction: 'Attention aux sons',
+                        question: 'Lequel est "ne" (et non "nu") ?',
+                        options: ['ね', 'ぬ', 'に', 'の'],
+                        correct: 'ね',
+                        explanation: 'ね se prononce "ne", ぬ se prononce "nu".'
+                    },
+                    {
+                        type: 'reading',
+                        title: 'Étape 8 : Lecture',
+                        instruction: 'Lis ce mot',
+                        text: 'ほん',
+                        question: 'Que signifie ce mot ?',
+                        options: ['Livre', 'Stylo', 'Table', 'Chaise'],
+                        correct: 'Livre',
+                        explanation: 'ほん (hon) signifie "livre".'
+                    },
+                    {
+                        type: 'translation',
+                        title: 'Étape 9 : Vocabulaire',
+                        instruction: 'Trouve la traduction',
+                        question: 'Comment dit-on "corde" ?',
+                        text: '(nawa = corde)',
+                        options: ['なわ', 'はな', 'にわ', 'ねこ'],
+                        correct: 'なわ',
+                        explanation: 'なわ (nawa) signifie "corde".'
+                    },
+                    {
+                        type: 'quiz',
+                        title: 'Étape 10 : Quiz final',
+                        instruction: 'Révision de la leçon',
+                        question: 'Quel hiragana se prononce "ho" ?',
+                        options: ['ほ', 'は', 'ひ', 'へ'],
+                        correct: 'ほ',
+                        explanation: 'ほ se prononce "ho".'
                     }
                 ]
             }
@@ -784,7 +898,7 @@
                         <div class="question">
                             ${score === lesson.steps.length
                                 ? 'Parfait ! Tu maîtrises cette leçon !'
-                                : score >= 4
+                                : score >= 7
                                 ? 'Bien joué ! Continue à pratiquer.'
                                 : 'Continue tes efforts, tu vas y arriver !'}
                         </div>
