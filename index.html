@@ -38,11 +38,29 @@
             display: flex;
             gap: 10px;
             margin-bottom: 20px;
+            overflow-x: auto;
+            padding-bottom: 5px;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .lesson-selector::-webkit-scrollbar {
+            height: 6px;
+        }
+
+        .lesson-selector::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 10px;
+        }
+
+        .lesson-selector::-webkit-scrollbar-thumb {
+            background: #667eea;
+            border-radius: 10px;
         }
 
         .lesson-btn {
-            flex: 1;
-            padding: 12px;
+            flex: 0 0 auto;
+            min-width: 80px;
+            padding: 12px 16px;
             border: 2px solid #667eea;
             background: white;
             color: #667eea;
@@ -50,6 +68,7 @@
             font-weight: 600;
             cursor: pointer;
             transition: all 0.3s;
+            white-space: nowrap;
         }
 
         .lesson-btn.active {
@@ -145,6 +164,45 @@
             font-size: 16px;
             color: #666;
             margin-bottom: 20px;
+        }
+
+        .input-answer {
+            width: 100%;
+            max-width: 400px;
+            padding: 15px;
+            font-size: 18px;
+            border: 2px solid #667eea;
+            border-radius: 10px;
+            margin: 20px auto;
+            display: block;
+            text-align: center;
+            font-family: inherit;
+        }
+
+        .input-answer:focus {
+            outline: none;
+            border-color: #764ba2;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+
+        .dialogue-box {
+            background: #2d2d2d;
+            color: #fff;
+            padding: 20px;
+            border-radius: 12px;
+            margin: 20px 0;
+            font-family: 'Courier New', monospace;
+            line-height: 1.8;
+        }
+
+        .dialogue-line {
+            margin: 10px 0;
+        }
+
+        .dialogue-highlight {
+            background: #667eea;
+            padding: 2px 6px;
+            border-radius: 4px;
         }
 
         .options {
@@ -311,13 +369,47 @@
                 ],
                 exercises: [
                     { type: 'table', title: 'Présentation des hiragana' },
-                    { type: 'recognition', question: 'Quelle est la lecture de ce hiragana ?', hiragana: 'き', options: ['ki', 'ka', 'ku', 'ke'], correct: 'ki' },
+                    { type: 'recognition', question: 'Quelle est la lecture de ce hiragana ?', hiragana: 'あ', options: ['a', 'i', 'u', 'e'], correct: 'a' },
+                    { type: 'recognition', question: 'Quelle est la lecture de ce hiragana ?', hiragana: 'い', options: ['i', 'a', 'e', 'o'], correct: 'i' },
                     { type: 'recognition', question: 'Quelle est la lecture de ce hiragana ?', hiragana: 'う', options: ['u', 'o', 'a', 'i'], correct: 'u' },
-                    { type: 'writing', question: 'Comment écrit-on "ka" en hiragana ?', romaji: 'ka', options: ['か', 'き', 'く', 'こ'], correct: 'か' },
+                    { type: 'recognition', question: 'Quelle est la lecture de ce hiragana ?', hiragana: 'え', options: ['e', 'i', 'a', 'o'], correct: 'e' },
+                    { type: 'recognition', question: 'Quelle est la lecture de ce hiragana ?', hiragana: 'お', options: ['o', 'u', 'a', 'e'], correct: 'o' },
+                    { type: 'recognition', question: 'Quelle est la lecture de ce hiragana ?', hiragana: 'か', options: ['ka', 'ki', 'ku', 'ke'], correct: 'ka' },
+                    { type: 'recognition', question: 'Quelle est la lecture de ce hiragana ?', hiragana: 'き', options: ['ki', 'ka', 'ku', 'ke'], correct: 'ki' },
+                    { type: 'recognition', question: 'Quelle est la lecture de ce hiragana ?', hiragana: 'く', options: ['ku', 'ka', 'ki', 'ko'], correct: 'ku' },
+                    { type: 'recognition', question: 'Quelle est la lecture de ce hiragana ?', hiragana: 'け', options: ['ke', 'ka', 'ki', 'ko'], correct: 'ke' },
+                    { type: 'recognition', question: 'Quelle est la lecture de ce hiragana ?', hiragana: 'こ', options: ['ko', 'ku', 'ka', 'ke'], correct: 'ko' },
+                    { type: 'writing', question: 'Comment écrit-on "a" en hiragana ?', romaji: 'a', options: ['あ', 'い', 'う', 'え'], correct: 'あ' },
+                    { type: 'writing', question: 'Comment écrit-on "i" en hiragana ?', romaji: 'i', options: ['い', 'あ', 'う', 'え'], correct: 'い' },
+                    { type: 'writing', question: 'Comment écrit-on "u" en hiragana ?', romaji: 'u', options: ['う', 'あ', 'い', 'お'], correct: 'う' },
                     { type: 'writing', question: 'Comment écrit-on "e" en hiragana ?', romaji: 'e', options: ['え', 'い', 'お', 'あ'], correct: 'え' },
-                    { type: 'word', question: 'Que signifie ce mot ?', word: 'あき', meaning: 'automne', options: ['automne', 'printemps', 'été', 'hiver'], correct: 'automne' },
-                    { type: 'word', question: 'Que signifie ce mot ?', word: 'いえ', meaning: 'maison', options: ['maison', 'chat', 'chien', 'arbre'], correct: 'maison' },
-                    { type: 'word', question: 'Que signifie ce mot ?', word: 'かお', meaning: 'visage', options: ['visage', 'main', 'pied', 'tête'], correct: 'visage' }
+                    { type: 'writing', question: 'Comment écrit-on "o" en hiragana ?', romaji: 'o', options: ['お', 'う', 'あ', 'え'], correct: 'お' },
+                    { type: 'writing', question: 'Comment écrit-on "ka" en hiragana ?', romaji: 'ka', options: ['か', 'き', 'く', 'こ'], correct: 'か' },
+                    { type: 'writing', question: 'Comment écrit-on "ki" en hiragana ?', romaji: 'ki', options: ['き', 'か', 'く', 'け'], correct: 'き' },
+                    { type: 'writing', question: 'Comment écrit-on "ku" en hiragana ?', romaji: 'ku', options: ['く', 'か', 'き', 'こ'], correct: 'く' },
+                    { type: 'writing', question: 'Comment écrit-on "ke" en hiragana ?', romaji: 'ke', options: ['け', 'か', 'き', 'く'], correct: 'け' },
+                    { type: 'writing', question: 'Comment écrit-on "ko" en hiragana ?', romaji: 'ko', options: ['こ', 'か', 'く', 'け'], correct: 'こ' },
+                    { type: 'word', question: 'Que signifie ce mot ?', word: 'あき', meaning: 'automne', options: ['あき (automne)', 'はる (printemps)', 'なつ (été)', 'ふゆ (hiver)'], correct: 'あき (automne)' },
+                    { type: 'word', question: 'Que signifie ce mot ?', word: 'いえ', meaning: 'maison', options: ['いえ (maison)', 'ねこ (chat)', 'いぬ (chien)', 'き (arbre)'], correct: 'いえ (maison)' },
+                    { type: 'word', question: 'Que signifie ce mot ?', word: 'かお', meaning: 'visage', options: ['かお (visage)', 'て (main)', 'あし (pied)', 'あたま (tête)'], correct: 'かお (visage)' },
+                    { type: 'word', question: 'Que signifie ce mot ?', word: 'あおい', meaning: 'bleu', options: ['あおい (bleu)', 'あか (rouge)', 'みどり (vert)', 'きいろ (jaune)'], correct: 'あおい (bleu)' },
+                    { type: 'word', question: 'Que signifie ce mot ?', word: 'あか', meaning: 'rouge', options: ['あか (rouge)', 'あおい (bleu)', 'しろ (blanc)', 'くろ (noir)'], correct: 'あか (rouge)' }
+                ]
+            },
+            {
+                id: 1.5,
+                title: "📝 Quiz Leçon 1",
+                isQuiz: true,
+                exercises: [
+                    { type: 'recognition', question: 'Quelle est la lecture de ce hiragana ?', hiragana: 'お', options: ['o', 'u', 'a', 'ko'], correct: 'o' },
+                    { type: 'recognition', question: 'Quelle est la lecture de ce hiragana ?', hiragana: 'き', options: ['ki', 'ku', 'ka', 'ke'], correct: 'ki' },
+                    { type: 'input', question: 'Lisez ce hiragana et tapez sa lecture en romaji :', hiragana: 'あ', correct: 'a' },
+                    { type: 'input', question: 'Lisez ce hiragana et tapez sa lecture en romaji :', hiragana: 'こ', correct: 'ko' },
+                    { type: 'recognition', question: 'Quelle est la lecture de ce hiragana ?', hiragana: 'え', options: ['e', 'i', 'ke', 'a'], correct: 'e' },
+                    { type: 'writing', question: 'Comment écrit-on "ku" en hiragana ?', romaji: 'ku', options: ['く', 'こ', 'か', 'き'], correct: 'く' },
+                    { type: 'writing', question: 'Comment écrit-on "i" en hiragana ?', romaji: 'i', options: ['い', 'あ', 'き', 'え'], correct: 'い' },
+                    { type: 'word', question: 'Que signifie "いえ" ?', word: 'いえ', meaning: 'maison', options: ['いえ (maison)', 'あき (automne)', 'かお (visage)', 'あか (rouge)'], correct: 'いえ (maison)' },
+                    { type: 'word', question: 'Que signifie "あき" ?', word: 'あき', meaning: 'automne', options: ['あき (automne)', 'いえ (maison)', 'あおい (bleu)', 'かお (visage)'], correct: 'あき (automne)' }
                 ]
             },
             {
@@ -337,13 +429,43 @@
                 ],
                 exercises: [
                     { type: 'table', title: 'Présentation des hiragana' },
+                    { type: 'recognition', question: 'Quelle est la lecture de ce hiragana ?', hiragana: 'さ', options: ['sa', 'shi', 'su', 'se'], correct: 'sa' },
                     { type: 'recognition', question: 'Quelle est la lecture de ce hiragana ?', hiragana: 'し', options: ['shi', 'si', 'chi', 'su'], correct: 'shi' },
+                    { type: 'recognition', question: 'Quelle est la lecture de ce hiragana ?', hiragana: 'す', options: ['su', 'shi', 'so', 'se'], correct: 'su' },
+                    { type: 'recognition', question: 'Quelle est la lecture de ce hiragana ?', hiragana: 'せ', options: ['se', 'sa', 'shi', 'so'], correct: 'se' },
+                    { type: 'recognition', question: 'Quelle est la lecture de ce hiragana ?', hiragana: 'そ', options: ['so', 'su', 'sa', 'se'], correct: 'so' },
+                    { type: 'recognition', question: 'Quelle est la lecture de ce hiragana ?', hiragana: 'た', options: ['ta', 'chi', 'tsu', 'te'], correct: 'ta' },
                     { type: 'recognition', question: 'Quelle est la lecture de ce hiragana ?', hiragana: 'ち', options: ['chi', 'ti', 'shi', 'tsu'], correct: 'chi' },
                     { type: 'recognition', question: 'Quelle est la lecture de ce hiragana ?', hiragana: 'つ', options: ['tsu', 'tu', 'su', 'chi'], correct: 'tsu' },
+                    { type: 'recognition', question: 'Quelle est la lecture de ce hiragana ?', hiragana: 'て', options: ['te', 'ta', 'to', 'chi'], correct: 'te' },
+                    { type: 'recognition', question: 'Quelle est la lecture de ce hiragana ?', hiragana: 'と', options: ['to', 'ta', 'te', 'tsu'], correct: 'to' },
+                    { type: 'writing', question: 'Comment écrit-on "sa" en hiragana ?', romaji: 'sa', options: ['さ', 'し', 'す', 'せ'], correct: 'さ' },
                     { type: 'writing', question: 'Comment écrit-on "shi" en hiragana ?', romaji: 'shi', options: ['し', 'ち', 'さ', 'す'], correct: 'し' },
+                    { type: 'writing', question: 'Comment écrit-on "su" en hiragana ?', romaji: 'su', options: ['す', 'さ', 'そ', 'し'], correct: 'す' },
+                    { type: 'writing', question: 'Comment écrit-on "chi" en hiragana ?', romaji: 'chi', options: ['ち', 'し', 'た', 'つ'], correct: 'ち' },
+                    { type: 'writing', question: 'Comment écrit-on "tsu" en hiragana ?', romaji: 'tsu', options: ['つ', 'ち', 'す', 'と'], correct: 'つ' },
                     { type: 'writing', question: 'Comment écrit-on "te" en hiragana ?', romaji: 'te', options: ['て', 'た', 'と', 'ち'], correct: 'て' },
-                    { type: 'word', question: 'Que signifie ce mot ?', word: 'すし', meaning: 'sushi', options: ['sushi', 'saké', 'soupe', 'thé'], correct: 'sushi' },
-                    { type: 'word', question: 'Que signifie ce mot ?', word: 'て', meaning: 'main', options: ['main', 'pied', 'tête', 'corps'], correct: 'main' }
+                    { type: 'word', question: 'Que signifie ce mot ?', word: 'すし', meaning: 'sushi', options: ['すし (sushi)', 'さけ (saké)', 'スープ (soupe)', 'ちゃ (thé)'], correct: 'すし (sushi)' },
+                    { type: 'word', question: 'Que signifie ce mot ?', word: 'て', meaning: 'main', options: ['て (main)', 'あし (pied)', 'あたま (tête)', 'からだ (corps)'], correct: 'て (main)' },
+                    { type: 'word', question: 'Que signifie ce mot ?', word: 'そと', meaning: 'dehors', options: ['そと (dehors)', 'なか (dedans)', 'ここ (ici)', 'そこ (là)'], correct: 'そと (dehors)' },
+                    { type: 'word', question: 'Que signifie ce mot ?', word: 'あさって', meaning: 'après-demain', options: ['あさって (après-demain)', 'あした (demain)', 'きのう (hier)', 'きょう (aujourd\'hui)'], correct: 'あさって (après-demain)' }
+                ]
+            },
+            {
+                id: 2.5,
+                title: "📝 Quiz Leçon 2",
+                isQuiz: true,
+                exercises: [
+                    { type: 'recognition', question: 'Quelle est la lecture de ce hiragana ?', hiragana: 'し', options: ['shi', 'chi', 'si', 'su'], correct: 'shi' },
+                    { type: 'input', question: 'Lisez ce hiragana et tapez sa lecture en romaji :', hiragana: 'つ', correct: 'tsu' },
+                    { type: 'recognition', question: 'Quelle est la lecture de ce hiragana ?', hiragana: 'つ', options: ['tsu', 'chi', 'su', 'tu'], correct: 'tsu' },
+                    { type: 'input', question: 'Lisez ce hiragana et tapez sa lecture en romaji :', hiragana: 'ち', correct: 'chi' },
+                    { type: 'recognition', question: 'Quelle est la lecture de ce hiragana ?', hiragana: 'ち', options: ['chi', 'shi', 'ti', 'tsu'], correct: 'chi' },
+                    { type: 'writing', question: 'Comment écrit-on "tsu" en hiragana ?', romaji: 'tsu', options: ['つ', 'ち', 'て', 'す'], correct: 'つ' },
+                    { type: 'writing', question: 'Comment écrit-on "sa" en hiragana ?', romaji: 'sa', options: ['さ', 'し', 'す', 'た'], correct: 'さ' },
+                    { type: 'word', question: 'Que signifie "すし" ?', word: 'すし', meaning: 'sushi', options: ['すし (sushi)', 'て (main)', 'そと (dehors)', 'あさって (après-demain)'], correct: 'すし (sushi)' },
+                    { type: 'input', question: 'Lisez ce mot et tapez sa lecture en romaji :', hiragana: 'すし', correct: 'sushi' },
+                    { type: 'word', question: 'Que signifie "て" ?', word: 'て', meaning: 'main', options: ['て (main)', 'あし (pied)', 'すし (sushi)', 'そと (dehors)'], correct: 'て (main)' }
                 ]
             },
             {
@@ -363,13 +485,38 @@
                 ],
                 exercises: [
                     { type: 'table', title: 'Présentation des hiragana' },
-                    { type: 'recognition', question: 'Quelle est la lecture de ce hiragana ?', hiragana: 'ふ', options: ['fu', 'hu', 'ha', 'ho'], correct: 'fu' },
+                    { type: 'recognition', question: 'Quelle est la lecture de ce hiragana ?', hiragana: 'な', options: ['na', 'ni', 'nu', 'ne'], correct: 'na' },
+                    { type: 'recognition', question: 'Quelle est la lecture de ce hiragana ?', hiragana: 'に', options: ['ni', 'na', 'nu', 'no'], correct: 'ni' },
+                    { type: 'recognition', question: 'Quelle est la lecture de ce hiragana ?', hiragana: 'ぬ', options: ['nu', 'na', 'ne', 'no'], correct: 'nu' },
                     { type: 'recognition', question: 'Quelle est la lecture de ce hiragana ?', hiragana: 'ね', options: ['ne', 'nu', 'na', 'no'], correct: 'ne' },
+                    { type: 'recognition', question: 'Quelle est la lecture de ce hiragana ?', hiragana: 'の', options: ['no', 'nu', 'na', 'ne'], correct: 'no' },
+                    { type: 'recognition', question: 'Quelle est la lecture de ce hiragana ?', hiragana: 'は', options: ['ha', 'hi', 'fu', 'he'], correct: 'ha' },
+                    { type: 'recognition', question: 'Quelle est la lecture de ce hiragana ?', hiragana: 'ひ', options: ['hi', 'ha', 'fu', 'he'], correct: 'hi' },
+                    { type: 'recognition', question: 'Quelle est la lecture de ce hiragana ?', hiragana: 'ふ', options: ['fu', 'hu', 'ha', 'ho'], correct: 'fu' },
+                    { type: 'recognition', question: 'Quelle est la lecture de ce hiragana ?', hiragana: 'へ', options: ['he', 'ha', 'hi', 'ho'], correct: 'he' },
+                    { type: 'recognition', question: 'Quelle est la lecture de ce hiragana ?', hiragana: 'ほ', options: ['ho', 'ha', 'fu', 'he'], correct: 'ho' },
+                    { type: 'writing', question: 'Comment écrit-on "na" en hiragana ?', romaji: 'na', options: ['な', 'に', 'ぬ', 'ね'], correct: 'な' },
                     { type: 'writing', question: 'Comment écrit-on "ni" en hiragana ?', romaji: 'ni', options: ['に', 'な', 'の', 'ぬ'], correct: 'に' },
+                    { type: 'writing', question: 'Comment écrit-on "fu" en hiragana ?', romaji: 'fu', options: ['ふ', 'は', 'ひ', 'ほ'], correct: 'ふ' },
                     { type: 'writing', question: 'Comment écrit-on "ho" en hiragana ?', romaji: 'ho', options: ['ほ', 'は', 'ひ', 'へ'], correct: 'ほ' },
-                    { type: 'word', question: 'Que signifie ce mot ?', word: 'はな', meaning: 'fleur', options: ['fleur', 'arbre', 'herbe', 'feuille'], correct: 'fleur' },
-                    { type: 'word', question: 'Que signifie ce mot ?', word: 'ねこ', meaning: 'chat', options: ['chat', 'chien', 'oiseau', 'poisson'], correct: 'chat' },
-                    { type: 'word', question: 'Que signifie ce mot ?', word: 'ほん', meaning: 'livre', options: ['livre', 'stylo', 'papier', 'table'], correct: 'livre' }
+                    { type: 'word', question: 'Que signifie ce mot ?', word: 'はな', meaning: 'fleur', options: ['はな (fleur)', 'き (arbre)', 'くさ (herbe)', 'は (feuille)'], correct: 'はな (fleur)' },
+                    { type: 'word', question: 'Que signifie ce mot ?', word: 'ねこ', meaning: 'chat', options: ['ねこ (chat)', 'いぬ (chien)', 'とり (oiseau)', 'さかな (poisson)'], correct: 'ねこ (chat)' },
+                    { type: 'word', question: 'Que signifie ce mot ?', word: 'ほん', meaning: 'livre', options: ['ほん (livre)', 'ペン (stylo)', 'かみ (papier)', 'テーブル (table)'], correct: 'ほん (livre)' },
+                    { type: 'word', question: 'Que signifie ce mot ?', word: 'なに', meaning: 'quoi', options: ['なに (quoi)', 'だれ (qui)', 'どこ (où)', 'いつ (quand)'], correct: 'なに (quoi)' }
+                ]
+            },
+            {
+                id: 3.5,
+                title: "📝 Quiz Leçon 3",
+                isQuiz: true,
+                exercises: [
+                    { type: 'recognition', question: 'Quelle est la lecture de ce hiragana ?', hiragana: 'ふ', options: ['fu', 'hu', 'ha', 'ho'], correct: 'fu' },
+                    { type: 'recognition', question: 'Quelle est la lecture de ce hiragana ?', hiragana: 'に', options: ['ni', 'na', 'nu', 'ne'], correct: 'ni' },
+                    { type: 'recognition', question: 'Quelle est la lecture de ce hiragana ?', hiragana: 'ほ', options: ['ho', 'ha', 'he', 'fu'], correct: 'ho' },
+                    { type: 'writing', question: 'Comment écrit-on "fu" en hiragana ?', romaji: 'fu', options: ['ふ', 'は', 'ほ', 'ひ'], correct: 'ふ' },
+                    { type: 'writing', question: 'Comment écrit-on "no" en hiragana ?', romaji: 'no', options: ['の', 'ね', 'な', 'ぬ'], correct: 'の' },
+                    { type: 'word', question: 'Que signifie "ねこ" ?', word: 'ねこ', meaning: 'chat', options: ['ねこ (chat)', 'いぬ (chien)', 'はな (fleur)', 'ほん (livre)'], correct: 'ねこ (chat)' },
+                    { type: 'word', question: 'Que signifie "はな" ?', word: 'はな', meaning: 'fleur', options: ['はな (fleur)', 'ねこ (chat)', 'ほん (livre)', 'なに (quoi)'], correct: 'はな (fleur)' }
                 ]
             },
             {
@@ -387,13 +534,36 @@
                 ],
                 exercises: [
                     { type: 'table', title: 'Présentation des hiragana' },
+                    { type: 'recognition', question: 'Quelle est la lecture de ce hiragana ?', hiragana: 'ま', options: ['ma', 'mi', 'mu', 'me'], correct: 'ma' },
+                    { type: 'recognition', question: 'Quelle est la lecture de ce hiragana ?', hiragana: 'み', options: ['mi', 'ma', 'mu', 'me'], correct: 'mi' },
+                    { type: 'recognition', question: 'Quelle est la lecture de ce hiragana ?', hiragana: 'む', options: ['mu', 'ma', 'mi', 'mo'], correct: 'mu' },
                     { type: 'recognition', question: 'Quelle est la lecture de ce hiragana ?', hiragana: 'め', options: ['me', 'mu', 'ma', 'mo'], correct: 'me' },
+                    { type: 'recognition', question: 'Quelle est la lecture de ce hiragana ?', hiragana: 'も', options: ['mo', 'mu', 'ma', 'me'], correct: 'mo' },
+                    { type: 'recognition', question: 'Quelle est la lecture de ce hiragana ?', hiragana: 'や', options: ['ya', 'yu', 'yo', 'ma'], correct: 'ya' },
                     { type: 'recognition', question: 'Quelle est la lecture de ce hiragana ?', hiragana: 'ゆ', options: ['yu', 'yo', 'ya', 'mu'], correct: 'yu' },
+                    { type: 'recognition', question: 'Quelle est la lecture de ce hiragana ?', hiragana: 'よ', options: ['yo', 'ya', 'yu', 'mo'], correct: 'yo' },
                     { type: 'writing', question: 'Comment écrit-on "ma" en hiragana ?', romaji: 'ma', options: ['ま', 'み', 'む', 'も'], correct: 'ま' },
+                    { type: 'writing', question: 'Comment écrit-on "mi" en hiragana ?', romaji: 'mi', options: ['み', 'ま', 'む', 'も'], correct: 'み' },
+                    { type: 'writing', question: 'Comment écrit-on "yu" en hiragana ?', romaji: 'yu', options: ['ゆ', 'や', 'よ', 'む'], correct: 'ゆ' },
                     { type: 'writing', question: 'Comment écrit-on "yo" en hiragana ?', romaji: 'yo', options: ['よ', 'や', 'ゆ', 'ま'], correct: 'よ' },
-                    { type: 'word', question: 'Que signifie ce mot ?', word: 'やま', meaning: 'montagne', options: ['montagne', 'mer', 'forêt', 'rivière'], correct: 'montagne' },
-                    { type: 'word', question: 'Que signifie ce mot ?', word: 'ゆき', meaning: 'neige', options: ['neige', 'pluie', 'vent', 'nuage'], correct: 'neige' },
-                    { type: 'word', question: 'Que signifie ce mot ?', word: 'もも', meaning: 'pêche', options: ['pêche', 'pomme', 'banane', 'orange'], correct: 'pêche' }
+                    { type: 'word', question: 'Que signifie ce mot ?', word: 'やま', meaning: 'montagne', options: ['やま (montagne)', 'うみ (mer)', 'もり (forêt)', 'かわ (rivière)'], correct: 'やま (montagne)' },
+                    { type: 'word', question: 'Que signifie ce mot ?', word: 'ゆき', meaning: 'neige', options: ['ゆき (neige)', 'あめ (pluie)', 'かぜ (vent)', 'くも (nuage)'], correct: 'ゆき (neige)' },
+                    { type: 'word', question: 'Que signifie ce mot ?', word: 'もも', meaning: 'pêche', options: ['もも (pêche)', 'りんご (pomme)', 'バナナ (banane)', 'オレンジ (orange)'], correct: 'もも (pêche)' },
+                    { type: 'word', question: 'Que signifie ce mot ?', word: 'まち', meaning: 'ville', options: ['まち (ville)', 'いなか (campagne)', 'いえ (maison)', 'みち (rue)'], correct: 'まち (ville)' }
+                ]
+            },
+            {
+                id: 4.5,
+                title: "📝 Quiz Leçon 4",
+                isQuiz: true,
+                exercises: [
+                    { type: 'recognition', question: 'Quelle est la lecture de ce hiragana ?', hiragana: 'ゆ', options: ['yu', 'ya', 'yo', 'mu'], correct: 'yu' },
+                    { type: 'recognition', question: 'Quelle est la lecture de ce hiragana ?', hiragana: 'め', options: ['me', 'ma', 'mu', 'mo'], correct: 'me' },
+                    { type: 'recognition', question: 'Quelle est la lecture de ce hiragana ?', hiragana: 'よ', options: ['yo', 'ya', 'yu', 'mo'], correct: 'yo' },
+                    { type: 'writing', question: 'Comment écrit-on "ma" en hiragana ?', romaji: 'ma', options: ['ま', 'み', 'む', 'や'], correct: 'ま' },
+                    { type: 'writing', question: 'Comment écrit-on "yu" en hiragana ?', romaji: 'yu', options: ['ゆ', 'や', 'よ', 'む'], correct: 'ゆ' },
+                    { type: 'word', question: 'Que signifie "やま" ?', word: 'やま', meaning: 'montagne', options: ['やま (montagne)', 'ゆき (neige)', 'もも (pêche)', 'まち (ville)'], correct: 'やま (montagne)' },
+                    { type: 'word', question: 'Que signifie "もも" ?', word: 'もも', meaning: 'pêche', options: ['もも (pêche)', 'りんご (pomme)', 'やま (montagne)', 'ゆき (neige)'], correct: 'もも (pêche)' }
                 ]
             },
             {
@@ -411,13 +581,36 @@
                 ],
                 exercises: [
                     { type: 'table', title: 'Présentation des hiragana' },
+                    { type: 'recognition', question: 'Quelle est la lecture de ce hiragana ?', hiragana: 'ら', options: ['ra', 'ri', 'ru', 're'], correct: 'ra' },
                     { type: 'recognition', question: 'Quelle est la lecture de ce hiragana ?', hiragana: 'り', options: ['ri', 'ra', 'ru', 're'], correct: 'ri' },
+                    { type: 'recognition', question: 'Quelle est la lecture de ce hiragana ?', hiragana: 'る', options: ['ru', 'ra', 'ri', 'ro'], correct: 'ru' },
+                    { type: 'recognition', question: 'Quelle est la lecture de ce hiragana ?', hiragana: 'れ', options: ['re', 'ra', 'ri', 'ro'], correct: 're' },
+                    { type: 'recognition', question: 'Quelle est la lecture de ce hiragana ?', hiragana: 'ろ', options: ['ro', 'ra', 'ru', 're'], correct: 'ro' },
+                    { type: 'recognition', question: 'Quelle est la lecture de ce hiragana ?', hiragana: 'わ', options: ['wa', 'wo', 'n', 'ra'], correct: 'wa' },
+                    { type: 'recognition', question: 'Quelle est la lecture de ce hiragana ?', hiragana: 'を', options: ['wo', 'wa', 'n', 'o'], correct: 'wo' },
                     { type: 'recognition', question: 'Quelle est la lecture de ce hiragana ?', hiragana: 'ん', options: ['n', 'wa', 'wo', 'ru'], correct: 'n' },
+                    { type: 'writing', question: 'Comment écrit-on "ra" en hiragana ?', romaji: 'ra', options: ['ら', 'り', 'る', 'れ'], correct: 'ら' },
                     { type: 'writing', question: 'Comment écrit-on "wa" en hiragana ?', romaji: 'wa', options: ['わ', 'を', 'ん', 'ら'], correct: 'わ' },
                     { type: 'writing', question: 'Comment écrit-on "ro" en hiragana ?', romaji: 'ro', options: ['ろ', 'ら', 'り', 'る'], correct: 'ろ' },
-                    { type: 'word', question: 'Que signifie ce mot ?', word: 'さくら', meaning: 'cerisier', options: ['cerisier', 'prunier', 'pommier', 'oranger'], correct: 'cerisier' },
-                    { type: 'word', question: 'Que signifie ce mot ?', word: 'くるま', meaning: 'voiture', options: ['voiture', 'vélo', 'train', 'avion'], correct: 'voiture' },
-                    { type: 'word', question: 'Que signifie ce mot ?', word: 'わたし', meaning: 'je/moi', options: ['je/moi', 'tu/toi', 'il/elle', 'nous'], correct: 'je/moi' }
+                    { type: 'writing', question: 'Comment écrit-on "n" en hiragana ?', romaji: 'n', options: ['ん', 'わ', 'を', 'の'], correct: 'ん' },
+                    { type: 'word', question: 'Que signifie ce mot ?', word: 'さくら', meaning: 'cerisier', options: ['さくら (cerisier)', 'うめ (prunier)', 'りんごのき (pommier)', 'オレンジのき (oranger)'], correct: 'さくら (cerisier)' },
+                    { type: 'word', question: 'Que signifie ce mot ?', word: 'くるま', meaning: 'voiture', options: ['くるま (voiture)', 'じてんしゃ (vélo)', 'でんしゃ (train)', 'ひこうき (avion)'], correct: 'くるま (voiture)' },
+                    { type: 'word', question: 'Que signifie ce mot ?', word: 'わたし', meaning: 'je/moi', options: ['わたし (je/moi)', 'あなた (tu/toi)', 'かれ/かのじょ (il/elle)', 'わたしたち (nous)'], correct: 'わたし (je/moi)' },
+                    { type: 'word', question: 'Que signifie ce mot ?', word: 'らいねん', meaning: 'année prochaine', options: ['らいねん (année prochaine)', 'ことし (cette année)', 'きょねん (année dernière)', 'まいとし (chaque année)'], correct: 'らいねん (année prochaine)' }
+                ]
+            },
+            {
+                id: 5.5,
+                title: "📝 Quiz Leçon 5",
+                isQuiz: true,
+                exercises: [
+                    { type: 'recognition', question: 'Quelle est la lecture de ce hiragana ?', hiragana: 'ん', options: ['n', 'wa', 'wo', 'no'], correct: 'n' },
+                    { type: 'recognition', question: 'Quelle est la lecture de ce hiragana ?', hiragana: 'を', options: ['wo', 'wa', 'o', 'n'], correct: 'wo' },
+                    { type: 'recognition', question: 'Quelle est la lecture de ce hiragana ?', hiragana: 'り', options: ['ri', 'ra', 'ni', 'ru'], correct: 'ri' },
+                    { type: 'writing', question: 'Comment écrit-on "wa" en hiragana ?', romaji: 'wa', options: ['わ', 'を', 'ん', 'は'], correct: 'わ' },
+                    { type: 'writing', question: 'Comment écrit-on "n" en hiragana ?', romaji: 'n', options: ['ん', 'を', 'わ', 'の'], correct: 'ん' },
+                    { type: 'word', question: 'Que signifie "わたし" ?', word: 'わたし', meaning: 'je/moi', options: ['わたし (je/moi)', 'あなた (tu/toi)', 'くるま (voiture)', 'さくら (cerisier)'], correct: 'わたし (je/moi)' },
+                    { type: 'word', question: 'Que signifie "くるま" ?', word: 'くるま', meaning: 'voiture', options: ['くるま (voiture)', 'さくら (cerisier)', 'わたし (je/moi)', 'らいねん (année prochaine)'], correct: 'くるま (voiture)' }
                 ]
             },
             {
@@ -438,12 +631,37 @@
                 exercises: [
                     { type: 'table', title: 'Présentation des hiragana' },
                     { type: 'recognition', question: 'Quelle est la lecture de ce hiragana ?', hiragana: 'が', options: ['ga', 'ka', 'gi', 'gu'], correct: 'ga' },
+                    { type: 'recognition', question: 'Quelle est la lecture de ce hiragana ?', hiragana: 'ぎ', options: ['gi', 'ki', 'ga', 'gu'], correct: 'gi' },
+                    { type: 'recognition', question: 'Quelle est la lecture de ce hiragana ?', hiragana: 'ぐ', options: ['gu', 'ku', 'ga', 'gi'], correct: 'gu' },
+                    { type: 'recognition', question: 'Quelle est la lecture de ce hiragana ?', hiragana: 'げ', options: ['ge', 'ke', 'ga', 'gi'], correct: 'ge' },
+                    { type: 'recognition', question: 'Quelle est la lecture de ce hiragana ?', hiragana: 'ご', options: ['go', 'ko', 'gu', 'ga'], correct: 'go' },
+                    { type: 'recognition', question: 'Quelle est la lecture de ce hiragana ?', hiragana: 'ざ', options: ['za', 'sa', 'ji', 'zu'], correct: 'za' },
                     { type: 'recognition', question: 'Quelle est la lecture de ce hiragana ?', hiragana: 'じ', options: ['ji', 'zi', 'shi', 'zu'], correct: 'ji' },
+                    { type: 'recognition', question: 'Quelle est la lecture de ce hiragana ?', hiragana: 'ず', options: ['zu', 'su', 'ji', 'ze'], correct: 'zu' },
+                    { type: 'recognition', question: 'Quelle est la lecture de ce hiragana ?', hiragana: 'ぜ', options: ['ze', 'se', 'za', 'zu'], correct: 'ze' },
+                    { type: 'recognition', question: 'Quelle est la lecture de ce hiragana ?', hiragana: 'ぞ', options: ['zo', 'so', 'zu', 'ze'], correct: 'zo' },
+                    { type: 'writing', question: 'Comment écrit-on "ga" en hiragana ?', romaji: 'ga', options: ['が', 'か', 'ぎ', 'ぐ'], correct: 'が' },
+                    { type: 'writing', question: 'Comment écrit-on "ji" en hiragana ?', romaji: 'ji', options: ['じ', 'し', 'ち', 'ず'], correct: 'じ' },
                     { type: 'writing', question: 'Comment écrit-on "go" en hiragana ?', romaji: 'go', options: ['ご', 'こ', 'が', 'ぐ'], correct: 'ご' },
                     { type: 'writing', question: 'Comment écrit-on "ze" en hiragana ?', romaji: 'ze', options: ['ぜ', 'せ', 'ざ', 'ぞ'], correct: 'ぜ' },
-                    { type: 'word', question: 'Que signifie ce mot ?', word: 'がっこう', meaning: 'école', options: ['école', 'maison', 'magasin', 'restaurant'], correct: 'école' },
-                    { type: 'word', question: 'Que signifie ce mot ?', word: 'かぞく', meaning: 'famille', options: ['famille', 'ami', 'voisin', 'collègue'], correct: 'famille' },
-                    { type: 'word', question: 'Que signifie ce mot ?', word: 'ざっし', meaning: 'magazine', options: ['magazine', 'journal', 'livre', 'cahier'], correct: 'magazine' }
+                    { type: 'word', question: 'Que signifie ce mot ?', word: 'がっこう', meaning: 'école', options: ['がっこう (école)', 'いえ (maison)', 'みせ (magasin)', 'レストラン (restaurant)'], correct: 'がっこう (école)' },
+                    { type: 'word', question: 'Que signifie ce mot ?', word: 'かぞく', meaning: 'famille', options: ['かぞく (famille)', 'ともだち (ami)', 'となり (voisin)', 'どうりょう (collègue)'], correct: 'かぞく (famille)' },
+                    { type: 'word', question: 'Que signifie ce mot ?', word: 'ざっし', meaning: 'magazine', options: ['ざっし (magazine)', 'しんぶん (journal)', 'ほん (livre)', 'ノート (cahier)'], correct: 'ざっし (magazine)' },
+                    { type: 'word', question: 'Que signifie ce mot ?', word: 'げんき', meaning: 'en forme', options: ['げんき (en forme)', 'つかれた (fatigué)', 'びょうき (malade)', 'かなしい (triste)'], correct: 'げんき (en forme)' }
+                ]
+            },
+            {
+                id: 6.5,
+                title: "📝 Quiz Leçon 6",
+                isQuiz: true,
+                exercises: [
+                    { type: 'recognition', question: 'Quelle est la lecture de ce hiragana ?', hiragana: 'じ', options: ['ji', 'zi', 'shi', 'chi'], correct: 'ji' },
+                    { type: 'recognition', question: 'Quelle est la lecture de ce hiragana ?', hiragana: 'が', options: ['ga', 'ka', 'gi', 'go'], correct: 'ga' },
+                    { type: 'recognition', question: 'Quelle est la lecture de ce hiragana ?', hiragana: 'ぜ', options: ['ze', 'se', 'zu', 'za'], correct: 'ze' },
+                    { type: 'writing', question: 'Comment écrit-on "go" en hiragana ?', romaji: 'go', options: ['ご', 'こ', 'が', 'ぐ'], correct: 'ご' },
+                    { type: 'writing', question: 'Comment écrit-on "ji" en hiragana ?', romaji: 'ji', options: ['じ', 'ち', 'し', 'ぢ'], correct: 'じ' },
+                    { type: 'word', question: 'Que signifie "がっこう" ?', word: 'がっこう', meaning: 'école', options: ['がっこう (école)', 'かぞく (famille)', 'ざっし (magazine)', 'げんき (en forme)'], correct: 'がっこう (école)' },
+                    { type: 'word', question: 'Que signifie "かぞく" ?', word: 'かぞく', meaning: 'famille', options: ['かぞく (famille)', 'がっこう (école)', 'ざっし (magazine)', 'げんき (en forme)'], correct: 'かぞく (famille)' }
                 ]
             },
             {
@@ -468,13 +686,41 @@
                 ],
                 exercises: [
                     { type: 'table', title: 'Présentation des hiragana' },
+                    { type: 'recognition', question: 'Quelle est la lecture de ce hiragana ?', hiragana: 'だ', options: ['da', 'ta', 'de', 'do'], correct: 'da' },
                     { type: 'recognition', question: 'Quelle est la lecture de ce hiragana ?', hiragana: 'で', options: ['de', 'te', 'do', 'da'], correct: 'de' },
+                    { type: 'recognition', question: 'Quelle est la lecture de ce hiragana ?', hiragana: 'ど', options: ['do', 'to', 'da', 'de'], correct: 'do' },
+                    { type: 'recognition', question: 'Quelle est la lecture de ce hiragana ?', hiragana: 'ば', options: ['ba', 'ha', 'pa', 'bi'], correct: 'ba' },
+                    { type: 'recognition', question: 'Quelle est la lecture de ce hiragana ?', hiragana: 'び', options: ['bi', 'hi', 'ba', 'pi'], correct: 'bi' },
+                    { type: 'recognition', question: 'Quelle est la lecture de ce hiragana ?', hiragana: 'ぶ', options: ['bu', 'fu', 'ba', 'pu'], correct: 'bu' },
+                    { type: 'recognition', question: 'Quelle est la lecture de ce hiragana ?', hiragana: 'べ', options: ['be', 'he', 'ba', 'pe'], correct: 'be' },
+                    { type: 'recognition', question: 'Quelle est la lecture de ce hiragana ?', hiragana: 'ぼ', options: ['bo', 'ho', 'ba', 'po'], correct: 'bo' },
                     { type: 'recognition', question: 'Quelle est la lecture de ce hiragana ?', hiragana: 'ぱ', options: ['pa', 'ba', 'ha', 'pi'], correct: 'pa' },
+                    { type: 'recognition', question: 'Quelle est la lecture de ce hiragana ?', hiragana: 'ぴ', options: ['pi', 'bi', 'hi', 'pa'], correct: 'pi' },
+                    { type: 'recognition', question: 'Quelle est la lecture de ce hiragana ?', hiragana: 'ぷ', options: ['pu', 'bu', 'fu', 'pa'], correct: 'pu' },
+                    { type: 'recognition', question: 'Quelle est la lecture de ce hiragana ?', hiragana: 'ぺ', options: ['pe', 'be', 'he', 'pa'], correct: 'pe' },
+                    { type: 'recognition', question: 'Quelle est la lecture de ce hiragana ?', hiragana: 'ぽ', options: ['po', 'bo', 'ho', 'pu'], correct: 'po' },
+                    { type: 'writing', question: 'Comment écrit-on "da" en hiragana ?', romaji: 'da', options: ['だ', 'た', 'で', 'ど'], correct: 'だ' },
                     { type: 'writing', question: 'Comment écrit-on "ba" en hiragana ?', romaji: 'ba', options: ['ば', 'ぱ', 'は', 'び'], correct: 'ば' },
+                    { type: 'writing', question: 'Comment écrit-on "pa" en hiragana ?', romaji: 'pa', options: ['ぱ', 'ば', 'は', 'ぴ'], correct: 'ぱ' },
                     { type: 'writing', question: 'Comment écrit-on "po" en hiragana ?', romaji: 'po', options: ['ぽ', 'ぼ', 'ほ', 'ぷ'], correct: 'ぽ' },
-                    { type: 'word', question: 'Que signifie ce mot ?', word: 'でんわ', meaning: 'téléphone', options: ['téléphone', 'ordinateur', 'télévision', 'radio'], correct: 'téléphone' },
-                    { type: 'word', question: 'Que signifie ce mot ?', word: 'ばん', meaning: 'soir', options: ['soir', 'matin', 'midi', 'nuit'], correct: 'soir' },
-                    { type: 'word', question: 'Que signifie ce mot ?', word: 'たべる', meaning: 'manger', options: ['manger', 'boire', 'dormir', 'marcher'], correct: 'manger' }
+                    { type: 'word', question: 'Que signifie ce mot ?', word: 'でんわ', meaning: 'téléphone', options: ['でんわ (téléphone)', 'パソコン (ordinateur)', 'テレビ (télévision)', 'ラジオ (radio)'], correct: 'でんわ (téléphone)' },
+                    { type: 'word', question: 'Que signifie ce mot ?', word: 'ばん', meaning: 'soir', options: ['ばん (soir)', 'あさ (matin)', 'ひる (midi)', 'よる (nuit)'], correct: 'ばん (soir)' },
+                    { type: 'word', question: 'Que signifie ce mot ?', word: 'たべる', meaning: 'manger', options: ['たべる (manger)', 'のむ (boire)', 'ねる (dormir)', 'あるく (marcher)'], correct: 'たべる (manger)' },
+                    { type: 'word', question: 'Que signifie ce mot ?', word: 'ぱん', meaning: 'pain', options: ['ぱん (pain)', 'こめ (riz)', 'にく (viande)', 'さかな (poisson)'], correct: 'ぱん (pain)' }
+                ]
+            },
+            {
+                id: 7.5,
+                title: "📝 Quiz Leçon 7",
+                isQuiz: true,
+                exercises: [
+                    { type: 'recognition', question: 'Quelle est la lecture de ce hiragana ?', hiragana: 'ぱ', options: ['pa', 'ba', 'ha', 'pi'], correct: 'pa' },
+                    { type: 'recognition', question: 'Quelle est la lecture de ce hiragana ?', hiragana: 'で', options: ['de', 'te', 'da', 'do'], correct: 'de' },
+                    { type: 'recognition', question: 'Quelle est la lecture de ce hiragana ?', hiragana: 'ぶ', options: ['bu', 'pu', 'fu', 'ba'], correct: 'bu' },
+                    { type: 'writing', question: 'Comment écrit-on "ba" en hiragana ?', romaji: 'ba', options: ['ば', 'ぱ', 'は', 'だ'], correct: 'ば' },
+                    { type: 'writing', question: 'Comment écrit-on "po" en hiragana ?', romaji: 'po', options: ['ぽ', 'ぼ', 'ほ', 'ど'], correct: 'ぽ' },
+                    { type: 'word', question: 'Que signifie "でんわ" ?', word: 'でんわ', meaning: 'téléphone', options: ['でんわ (téléphone)', 'ばん (soir)', 'たべる (manger)', 'ぱん (pain)'], correct: 'でんわ (téléphone)' },
+                    { type: 'word', question: 'Que signifie "たべる" ?', word: 'たべる', meaning: 'manger', options: ['たべる (manger)', 'のむ (boire)', 'でんわ (téléphone)', 'ぱん (pain)'], correct: 'たべる (manger)' }
                 ]
             },
             {
@@ -492,11 +738,11 @@
                     { type: 'writing', question: 'Comment écrit-on "ga" en hiragana ?', romaji: 'ga', options: ['が', 'か', 'ぎ', 'ぐ'], correct: 'が' },
                     { type: 'writing', question: 'Comment écrit-on "pa" en hiragana ?', romaji: 'pa', options: ['ぱ', 'ば', 'は', 'ぴ'], correct: 'ぱ' },
                     { type: 'writing', question: 'Comment écrit-on "n" en hiragana ?', romaji: 'n', options: ['ん', 'わ', 'を', 'の'], correct: 'ん' },
-                    { type: 'word', question: 'Que signifie ce mot ?', word: 'すし', meaning: 'sushi', options: ['sushi', 'saké', 'soupe', 'thé'], correct: 'sushi' },
-                    { type: 'word', question: 'Que signifie ce mot ?', word: 'さくら', meaning: 'cerisier', options: ['cerisier', 'prunier', 'pommier', 'oranger'], correct: 'cerisier' },
-                    { type: 'word', question: 'Que signifie ce mot ?', word: 'がっこう', meaning: 'école', options: ['école', 'maison', 'magasin', 'restaurant'], correct: 'école' },
-                    { type: 'word', question: 'Que signifie ce mot ?', word: 'でんわ', meaning: 'téléphone', options: ['téléphone', 'ordinateur', 'télévision', 'radio'], correct: 'téléphone' },
-                    { type: 'word', question: 'Que signifie ce mot ?', word: 'わたし', meaning: 'je/moi', options: ['je/moi', 'tu/toi', 'il/elle', 'nous'], correct: 'je/moi' }
+                    { type: 'word', question: 'Que signifie ce mot ?', word: 'すし', meaning: 'sushi', options: ['すし (sushi)', 'さけ (saké)', 'スープ (soupe)', 'ちゃ (thé)'], correct: 'すし (sushi)' },
+                    { type: 'word', question: 'Que signifie ce mot ?', word: 'さくら', meaning: 'cerisier', options: ['さくら (cerisier)', 'うめ (prunier)', 'りんごのき (pommier)', 'オレンジのき (oranger)'], correct: 'さくら (cerisier)' },
+                    { type: 'word', question: 'Que signifie ce mot ?', word: 'がっこう', meaning: 'école', options: ['がっこう (école)', 'いえ (maison)', 'みせ (magasin)', 'レストラン (restaurant)'], correct: 'がっこう (école)' },
+                    { type: 'word', question: 'Que signifie ce mot ?', word: 'でんわ', meaning: 'téléphone', options: ['でんわ (téléphone)', 'パソコン (ordinateur)', 'テレビ (télévision)', 'ラジオ (radio)'], correct: 'でんわ (téléphone)' },
+                    { type: 'word', question: 'Que signifie ce mot ?', word: 'わたし', meaning: 'je/moi', options: ['わたし (je/moi)', 'あなた (tu/toi)', 'かれ/かのじょ (il/elle)', 'わたしたち (nous)'], correct: 'わたし (je/moi)' }
                 ]
             },
             {
@@ -517,10 +763,28 @@
                 ],
                 exercises: [
                     { type: 'vocab_display', title: 'Liste du vocabulaire' },
-                    { type: 'word', question: 'Que signifie ce mot ?', word: 'おはよう', meaning: 'bonjour (matin)', options: ['bonjour (matin)', 'bonjour (journée)', 'bonsoir', 'au revoir'], correct: 'bonjour (matin)' },
-                    { type: 'word', question: 'Que signifie ce mot ?', word: 'ありがとう', meaning: 'merci', options: ['merci', 'pardon', 's\'il vous plaît', 'excusez-moi'], correct: 'merci' },
-                    { type: 'word', question: 'Que signifie ce mot ?', word: 'さようなら', meaning: 'au revoir', options: ['au revoir', 'bonjour', 'bonsoir', 'salut'], correct: 'au revoir' },
-                    { type: 'word', question: 'Que signifie ce mot ?', word: 'はい', meaning: 'oui', options: ['oui', 'non', 'peut-être', 'merci'], correct: 'oui' },
+                    { type: 'word', question: 'Que signifie ce mot ?', word: 'おはよう', meaning: 'bonjour (matin)', options: ['おはよう (bonjour matin)', 'こんにちは (bonjour journée)', 'こんばんは (bonsoir)', 'さようなら (au revoir)'], correct: 'おはよう (bonjour matin)' },
+                    { type: 'input', question: 'Lisez ce mot et tapez sa lecture en romaji :', hiragana: 'こんにちは', correct: 'konnichiwa' },
+                    { type: 'dialogue', question: 'Lisez le mot surligné et tapez sa lecture en romaji :',
+                      dialogue: [
+                        { text: 'A: をとにすがありますか?', highlight: false },
+                        { text: 'B: いいえ、つくえ と くつ が あります。', highlight: false },
+                        { text: 'A: そうですか。', highlight: true }
+                      ],
+                      correct: 'soudesuka'
+                    },
+                    { type: 'word', question: 'Que signifie ce mot ?', word: 'ありがとう', meaning: 'merci', options: ['ありがとう (merci)', 'ごめんなさい (pardon)', 'おねがいします (s\'il vous plaît)', 'すみません (excusez-moi)'], correct: 'ありがとう (merci)' },
+                    { type: 'input', question: 'Lisez ce mot et tapez sa lecture en romaji :', hiragana: 'さようなら', correct: 'sayounara' },
+                    { type: 'word', question: 'Que signifie ce mot ?', word: 'さようなら', meaning: 'au revoir', options: ['さようなら (au revoir)', 'おはよう (bonjour)', 'こんばんは (bonsoir)', 'やあ (salut)'], correct: 'さようなら (au revoir)' },
+                    { type: 'word', question: 'Que signifie ce mot ?', word: 'はい', meaning: 'oui', options: ['はい (oui)', 'いいえ (non)', 'たぶん (peut-être)', 'ありがとう (merci)'], correct: 'はい (oui)' },
+                    { type: 'dialogue', question: 'Lisez le dialogue et tapez la lecture en romaji de la phrase surlignée :',
+                      dialogue: [
+                        { text: 'A: おはよう ございます。', highlight: false },
+                        { text: 'B: おはよう。げんき ですか?', highlight: false },
+                        { text: 'A: はい、げんき です。ありがとう。', highlight: true }
+                      ],
+                      correct: 'hai genki desu arigatou'
+                    },
                     { type: 'word', question: 'Comment dit-on "excusez-moi" ?', word: 'すみません', meaning: 'excusez-moi', options: ['すみません', 'ありがとう', 'ごめんなさい', 'はい'], correct: 'すみません' }
                 ]
             },
@@ -542,10 +806,10 @@
                 ],
                 exercises: [
                     { type: 'vocab_display', title: 'Liste du vocabulaire' },
-                    { type: 'word', question: 'Que signifie ce mot ?', word: 'みず', meaning: 'eau', options: ['eau', 'thé', 'lait', 'jus'], correct: 'eau' },
-                    { type: 'word', question: 'Que signifie ce mot ?', word: 'ごはん', meaning: 'riz/repas', options: ['riz/repas', 'pain', 'soupe', 'salade'], correct: 'riz/repas' },
-                    { type: 'word', question: 'Que signifie ce mot ?', word: 'さかな', meaning: 'poisson', options: ['poisson', 'viande', 'poulet', 'oeuf'], correct: 'poisson' },
-                    { type: 'word', question: 'Que signifie ce mot ?', word: 'くだもの', meaning: 'fruit', options: ['fruit', 'légume', 'gâteau', 'bonbon'], correct: 'fruit' }
+                    { type: 'word', question: 'Que signifie ce mot ?', word: 'みず', meaning: 'eau', options: ['みず (eau)', 'おちゃ (thé)', 'ぎゅうにゅう (lait)', 'ジュース (jus)'], correct: 'みず (eau)' },
+                    { type: 'word', question: 'Que signifie ce mot ?', word: 'ごはん', meaning: 'riz/repas', options: ['ごはん (riz/repas)', 'パン (pain)', 'スープ (soupe)', 'サラダ (salade)'], correct: 'ごはん (riz/repas)' },
+                    { type: 'word', question: 'Que signifie ce mot ?', word: 'さかな', meaning: 'poisson', options: ['さかな (poisson)', 'にく (viande)', 'とりにく (poulet)', 'たまご (oeuf)'], correct: 'さかな (poisson)' },
+                    { type: 'word', question: 'Que signifie ce mot ?', word: 'くだもの', meaning: 'fruit', options: ['くだもの (fruit)', 'やさい (légume)', 'ケーキ (gâteau)', 'あめ (bonbon)'], correct: 'くだもの (fruit)' }
                 ]
             },
             {
@@ -566,10 +830,10 @@
                 ],
                 exercises: [
                     { type: 'vocab_display', title: 'Liste du vocabulaire' },
-                    { type: 'word', question: 'Que signifie ce mot ?', word: 'へや', meaning: 'chambre', options: ['chambre', 'cuisine', 'salon', 'salle de bain'], correct: 'chambre' },
-                    { type: 'word', question: 'Que signifie ce mot ?', word: 'まど', meaning: 'fenêtre', options: ['fenêtre', 'porte', 'mur', 'toit'], correct: 'fenêtre' },
-                    { type: 'word', question: 'Que signifie ce mot ?', word: 'かばん', meaning: 'sac', options: ['sac', 'chaussure', 'chapeau', 'veste'], correct: 'sac' },
-                    { type: 'word', question: 'Que signifie ce mot ?', word: 'ほん', meaning: 'livre', options: ['livre', 'cahier', 'stylo', 'papier'], correct: 'livre' }
+                    { type: 'word', question: 'Que signifie ce mot ?', word: 'へや', meaning: 'chambre', options: ['へや (chambre)', 'だいどころ (cuisine)', 'リビング (salon)', 'ふろば (salle de bain)'], correct: 'へや (chambre)' },
+                    { type: 'word', question: 'Que signifie ce mot ?', word: 'まど', meaning: 'fenêtre', options: ['まど (fenêtre)', 'ドア (porte)', 'かべ (mur)', 'やね (toit)'], correct: 'まど (fenêtre)' },
+                    { type: 'word', question: 'Que signifie ce mot ?', word: 'かばん', meaning: 'sac', options: ['かばん (sac)', 'くつ (chaussure)', 'ぼうし (chapeau)', 'ジャケット (veste)'], correct: 'かばん (sac)' },
+                    { type: 'word', question: 'Que signifie ce mot ?', word: 'ほん', meaning: 'livre', options: ['ほん (livre)', 'ノート (cahier)', 'ペン (stylo)', 'かみ (papier)'], correct: 'ほん (livre)' }
                 ]
             },
             {
@@ -590,10 +854,10 @@
                 ],
                 exercises: [
                     { type: 'vocab_display', title: 'Liste du vocabulaire' },
-                    { type: 'word', question: 'Que signifie ce mot ?', word: 'きょう', meaning: 'aujourd\'hui', options: ['aujourd\'hui', 'hier', 'demain', 'maintenant'], correct: 'aujourd\'hui' },
-                    { type: 'word', question: 'Que signifie ce mot ?', word: 'あした', meaning: 'demain', options: ['demain', 'hier', 'aujourd\'hui', 'après-demain'], correct: 'demain' },
-                    { type: 'word', question: 'Que signifie ce mot ?', word: 'よる', meaning: 'soir/nuit', options: ['soir/nuit', 'matin', 'midi', 'après-midi'], correct: 'soir/nuit' },
-                    { type: 'word', question: 'Que signifie ce mot ?', word: 'なつ', meaning: 'été', options: ['été', 'printemps', 'automne', 'hiver'], correct: 'été' }
+                    { type: 'word', question: 'Que signifie ce mot ?', word: 'きょう', meaning: 'aujourd\'hui', options: ['きょう (aujourd\'hui)', 'きのう (hier)', 'あした (demain)', 'いま (maintenant)'], correct: 'きょう (aujourd\'hui)' },
+                    { type: 'word', question: 'Que signifie ce mot ?', word: 'あした', meaning: 'demain', options: ['あした (demain)', 'きのう (hier)', 'きょう (aujourd\'hui)', 'あさって (après-demain)'], correct: 'あした (demain)' },
+                    { type: 'word', question: 'Que signifie ce mot ?', word: 'よる', meaning: 'soir/nuit', options: ['よる (soir/nuit)', 'あさ (matin)', 'ひる (midi)', 'ごご (après-midi)'], correct: 'よる (soir/nuit)' },
+                    { type: 'word', question: 'Que signifie ce mot ?', word: 'なつ', meaning: 'été', options: ['なつ (été)', 'はる (printemps)', 'あき (automne)', 'ふゆ (hiver)'], correct: 'なつ (été)' }
                 ]
             }
         ];
@@ -660,17 +924,26 @@
 
             if (exercise.type === 'table') {
                 renderTable(lesson.hiragana);
+                nextBtn.disabled = false;
             } else if (exercise.type === 'vocab_display') {
                 renderVocabDisplay(lesson.words);
+                nextBtn.disabled = false;
             } else if (exercise.type === 'recognition') {
                 renderRecognition(exercise);
+                nextBtn.disabled = true;
             } else if (exercise.type === 'writing') {
                 renderWriting(exercise);
+                nextBtn.disabled = true;
             } else if (exercise.type === 'word') {
                 renderWord(exercise);
+                nextBtn.disabled = true;
+            } else if (exercise.type === 'input') {
+                renderInput(exercise);
+                nextBtn.disabled = true;
+            } else if (exercise.type === 'dialogue') {
+                renderDialogue(exercise);
+                nextBtn.disabled = true;
             }
-
-            nextBtn.disabled = exercise.type === 'table' || exercise.type === 'vocab_display';
         }
 
         function renderTable(hiragana) {
@@ -775,6 +1048,120 @@
             stepContainer.appendChild(box);
 
             renderOptions(exercise.options, exercise.correct);
+        }
+
+        function renderInput(exercise) {
+            const box = document.createElement('div');
+            box.className = 'question-box';
+
+            const display = document.createElement('div');
+            display.className = 'japanese-display';
+            display.textContent = exercise.hiragana;
+            box.appendChild(display);
+
+            const question = document.createElement('div');
+            question.className = 'question-text';
+            question.textContent = exercise.question;
+            box.appendChild(question);
+
+            stepContainer.appendChild(box);
+
+            const input = document.createElement('input');
+            input.type = 'text';
+            input.className = 'input-answer';
+            input.placeholder = 'Tapez votre réponse en romaji...';
+            input.id = 'userInput';
+
+            input.addEventListener('keypress', (e) => {
+                if (e.key === 'Enter') {
+                    checkInput(input.value, exercise.correct);
+                }
+            });
+
+            stepContainer.appendChild(input);
+
+            const checkBtn = document.createElement('button');
+            checkBtn.className = 'btn btn-primary';
+            checkBtn.textContent = 'Vérifier';
+            checkBtn.style.marginTop = '20px';
+            checkBtn.onclick = () => checkInput(input.value, exercise.correct);
+            stepContainer.appendChild(checkBtn);
+
+            input.focus();
+        }
+
+        function renderDialogue(exercise) {
+            const dialogueBox = document.createElement('div');
+            dialogueBox.className = 'dialogue-box';
+
+            exercise.dialogue.forEach(line => {
+                const lineDiv = document.createElement('div');
+                lineDiv.className = 'dialogue-line';
+                if (line.highlight) {
+                    lineDiv.innerHTML = `<span class="dialogue-highlight">${line.text}</span>`;
+                } else {
+                    lineDiv.textContent = line.text;
+                }
+                dialogueBox.appendChild(lineDiv);
+            });
+
+            stepContainer.appendChild(dialogueBox);
+
+            const question = document.createElement('div');
+            question.className = 'question-text';
+            question.style.marginTop = '20px';
+            question.textContent = exercise.question;
+            stepContainer.appendChild(question);
+
+            const input = document.createElement('input');
+            input.type = 'text';
+            input.className = 'input-answer';
+            input.placeholder = 'Tapez votre réponse en romaji...';
+            input.id = 'userInput';
+
+            input.addEventListener('keypress', (e) => {
+                if (e.key === 'Enter') {
+                    checkInput(input.value, exercise.correct);
+                }
+            });
+
+            stepContainer.appendChild(input);
+
+            const checkBtn = document.createElement('button');
+            checkBtn.className = 'btn btn-primary';
+            checkBtn.textContent = 'Vérifier';
+            checkBtn.style.marginTop = '20px';
+            checkBtn.onclick = () => checkInput(input.value, exercise.correct);
+            stepContainer.appendChild(checkBtn);
+
+            input.focus();
+        }
+
+        function checkInput(userAnswer, correct) {
+            if (answered) return;
+
+            const cleanAnswer = userAnswer.trim().toLowerCase();
+            const cleanCorrect = correct.toLowerCase();
+
+            answered = true;
+            const input = document.getElementById('userInput');
+            input.disabled = true;
+
+            const isCorrect = cleanAnswer === cleanCorrect;
+
+            if (isCorrect) {
+                score++;
+                feedback.className = 'feedback success show';
+                feedback.textContent = '✓ Correct !';
+                input.style.borderColor = '#4caf50';
+            } else {
+                feedback.className = 'feedback error show';
+                feedback.textContent = `✗ Incorrect. La bonne réponse était : ${correct}`;
+                input.style.borderColor = '#f44336';
+            }
+
+            updateScore();
+            nextBtn.disabled = false;
         }
 
         function renderOptions(options, correct) {
