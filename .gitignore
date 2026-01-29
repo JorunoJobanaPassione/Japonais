@@ -1,0 +1,8 @@
+# Credentials - NE JAMAIS COMMITER
+CREDENTIALS.txt
+*.credentials
+*.secret
+
+# OS
+.DS_Store
+Thumbs.db
