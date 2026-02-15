@@ -1,61 +1,68 @@
 # NinjaKana - Progression
 
-## Statut : Score 8/10
+## Statut actuel
 
-**Derniere MAJ** : 15 fevrier 2026
+**MAJ** : 15 fevrier 2026
 
-| Plateforme | Version | Status |
-|------------|---------|--------|
-| iOS | v1.0.6 | En attente verification Apple |
-| Android | v1.0.6 | LIVE (23 downloads) |
+| Plateforme | Version | Downloads | Status |
+|------------|---------|-----------|--------|
+| iOS | 1.0.6 | 24 | LIVE |
+| Android | 1.0.6 | 23 | LIVE |
 
-**URL Landing** : https://ninjakana-web.vercel.app
-
----
-
-## FAIT
-
-### Core App
-- [x] 92 kana (46 hiragana + 46 katakana) + kanji N5
-- [x] SRS (Spaced Repetition) avec algorithme SM-2
-- [x] 250 fichiers audio natifs
-- [x] Gamification (rangs ninja, streaks, quetes, badges)
-- [x] Freemium + 3 tiers premium via RevenueCat
-- [x] Publicites (banners, interstitials, rewarded)
-- [x] i18n FR + EN
-
-### Landing Web (15/02/2026)
-- [x] og:image dynamique 1200x630
-- [x] Schema.org SoftwareApplication
-- [x] Schema.org FAQPage
-- [x] Section Social Proof (2.3K+ learners, 4.8 stars)
-- [x] FAQ 5 questions
-- [x] metadataBase + canonical tags
-
-### Code Quality (15/02/2026)
-- [x] Suppression 44 console.logs dans mobile-app
+**Landing** : https://ninjakana-web.vercel.app
 
 ---
 
-## A FAIRE
+## Stats
+
+| Source | Metrique | Valeur |
+|--------|----------|--------|
+| iOS | Taux conversion | 9.96% |
+| iOS | Impressions | 409 |
+| Android | DAU | 3-5 |
+| RevenueCat | Revenue | 0 EUR |
+| AdMob | Revenue | 0 CHF |
+
+**Top pays** : Suisse, France, Espagne, Cote d'Ivoire
+
+---
+
+## Fait (15/02/2026)
+
+### Bugs corriges (code pret, build en attente)
+- [x] Typo "Mnemo" -> "Memo" (common.json)
+- [x] Bug SRS 1 carte (ajout prop isLastCard)
+- [x] Audio exemples kanji (conversion hiragana->romaji)
+
+### SEO/Marketing
+- [x] robots.txt
+- [x] sitemap.xml
+- [x] Google Search Console configure + sitemap soumis
+- [x] app-ads.txt pour AdMob
+- [x] Site web Play Store mis a jour
+
+---
+
+## A faire
+
+### En attente
+- [ ] Validation AdMob (~24h propagation)
+- [ ] Build mobile quand assez de retours utilisateurs
 
 ### Cette semaine
-- [ ] Attendre validation iOS
-- [ ] Activer Shyne (50 EUR + code SHYNE)
+- [ ] Activer partenariat Shyne (50 EUR + code SHYNE)
 - [ ] 10 avis via entourage
+- [ ] Creer blocs Banner/Interstitial iOS sur AdMob
 
 ### Semaine prochaine
 - [ ] Article : "Apprendre hiragana en 7 jours"
 - [ ] Article : "Hiragana vs Katakana"
-- [ ] Article : "Meilleures apps japonais 2026"
 - [ ] ASO : Screenshots avec ratings overlay
-- [ ] Soumettre sitemap Google Search Console
 
-### Mois prochain
-- [ ] Email capture (ConvertKit + lead magnet PDF)
-- [ ] Influenceurs : Acekid, @juudaichi, @nathalie.kithara
-- [ ] Reddit r/LearnJapanese + groupes FB
-- [ ] Video Remotion 15s pour TikTok
+### Plus tard
+- [ ] Email capture (ConvertKit)
+- [ ] Reddit r/LearnJapanese
+- [ ] Video TikTok 15s
 - [ ] Domaine ninjakana.app
 
 ---
@@ -67,35 +74,6 @@
 | Contact | @shyne_spm (TikTok 29.6K) |
 | Deal | 50 EUR + 30% affiliate |
 | Code | SHYNE (7 jours Premium) |
-| Status | En attente iOS approval |
-
----
-
-## SEO Keywords cibles
-
-| Keyword FR | Volume | Priorite |
-|------------|--------|----------|
-| apprendre hiragana | 8K+ | P1 |
-| apprendre katakana | 6K+ | P1 |
-| hiragana katakana app | 2K+ | P1 |
-
-| Keyword EN | Volume | Priorite |
-|------------|--------|----------|
-| learn hiragana | 60K+ | P1 |
-| best hiragana app | 8K+ | P1 |
-| hiragana quiz app | 5K+ | P1 |
-
----
-
-## Metriques objectifs
-
-| Metrique | Actuel | 1 mois | 3 mois |
-|----------|--------|--------|--------|
-| iOS downloads | 0 | 100 | 500 |
-| Android downloads | 23 | 200 | 1000 |
-| Avis stores | 0 | 15 | 50 |
-| Articles blog | 0 | 3 | 8 |
-| MRR | 0 EUR | 50 EUR | 200 EUR |
 
 ---
 
@@ -103,8 +81,7 @@
 
 | Composant | Choix |
 |-----------|-------|
-| Mobile | React Native / Expo SDK 54+ |
-| Navigation | React Navigation |
+| Mobile | React Native / Expo SDK 54 |
 | IAP | RevenueCat |
 | Ads | Google Mobile Ads |
 | Landing | Next.js 16 / Vercel |
