@@ -2,68 +2,47 @@
 
 ## Statut actuel
 
-**MAJ** : 15 fevrier 2026
+**MAJ** : 1 mars 2026
 
-| Plateforme | Version | Downloads | Status |
-|------------|---------|-----------|--------|
-| iOS | 1.0.6 | 24 | LIVE |
-| Android | 1.0.6 | 23 | LIVE |
+| Plateforme | Version | Status |
+|------------|---------|--------|
+| iOS | 1.0.8 | En review Apple |
+| Android | 1.0.8 | En review Google |
+| AdMob | ✓ | Actif |
 
-**Landing** : https://ninjakana-web.vercel.app
-
----
-
-## Stats
-
-| Source | Metrique | Valeur |
-|--------|----------|--------|
-| iOS | Taux conversion | 9.96% |
-| iOS | Impressions | 409 |
-| Android | DAU | 3-5 |
-| RevenueCat | Revenue | 0 EUR |
-| AdMob | Revenue | 0 CHF |
-
-**Top pays** : Suisse, France, Espagne, Cote d'Ivoire
+**Landing** : https://ninjakana.app
 
 ---
 
-## Fait (15/02/2026)
+## Stats (1 mars 2026)
 
-### Bugs corriges (code pret, build en attente)
-- [x] Typo "Mnemo" -> "Memo" (common.json)
-- [x] Bug SRS 1 carte (ajout prop isLastCard)
-- [x] Audio exemples kanji (conversion hiragana->romaji)
+| Metrique | iOS | Android | Total |
+|----------|-----|---------|-------|
+| Telechargements/mois | 36 | ~28 | ~64 |
+| Active Customers | - | - | 118 |
+| Conversions Premium | 0 | 0 | **0** |
+| Note | - | 5.00 | - |
 
-### SEO/Marketing
-- [x] robots.txt
-- [x] sitemap.xml
-- [x] Google Search Console configure + sitemap soumis
-- [x] app-ads.txt pour AdMob
-- [x] Site web Play Store mis a jour
+---
+
+## v1.0.8 - Optimisation Paywall
+
+**Changements** :
+- FREE_LESSONS_PER_CATEGORY : 5 → 3
+- Paywall recurrent toutes les 3 nouvelles lecons
+- Hard paywall quand limite exercices atteinte
+
+**Impact attendu** : Conversion 0% → 2-5%
 
 ---
 
 ## A faire
 
-### En attente
-- [ ] Validation AdMob (~24h propagation)
-- [ ] Build mobile quand assez de retours utilisateurs
-
-### Cette semaine
-- [ ] Activer partenariat Shyne (50 EUR + code SHYNE)
-- [ ] 10 avis via entourage
-- [ ] Creer blocs Banner/Interstitial iOS sur AdMob
-
-### Semaine prochaine
-- [ ] Article : "Apprendre hiragana en 7 jours"
-- [ ] Article : "Hiragana vs Katakana"
+- [ ] Analyser conversions apres 2 semaines de v1.0.8
+- [ ] Article 3 : "NinjaKana vs Duolingo vs Anki"
+- [ ] Soumettre URLs blog a Google Search Console
 - [ ] ASO : Screenshots avec ratings overlay
-
-### Plus tard
 - [ ] Email capture (ConvertKit)
-- [ ] Reddit r/LearnJapanese
-- [ ] Video TikTok 15s
-- [ ] Domaine ninjakana.app
 
 ---
 
@@ -71,9 +50,25 @@
 
 | Info | Valeur |
 |------|--------|
-| Contact | @shyne_spm (TikTok 29.6K) |
+| Contact | @shyne_spm (TikTok 29.6K, Instagram 3.3K) |
 | Deal | 50 EUR + 30% affiliate |
-| Code | SHYNE (7 jours Premium) |
+| Code | **SHYNE-NK24** (7 jours Premium) |
+| Status | **ACTIVE** |
+
+**Contenu poste** (1 mars 2026) :
+- Instagram Reel : 915 vues en 5h
+- TikTok : demande en cours
+
+---
+
+## Contenu TikTok (frere)
+
+| # | Script | Status |
+|---|--------|--------|
+| 1-5 | Envoyes | En attente |
+| 6-8 | Disponibles | Prets |
+
+**Fichier** : `SCRIPTS-TIKTOK.md`
 
 ---
 
