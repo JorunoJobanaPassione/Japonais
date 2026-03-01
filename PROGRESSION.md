@@ -6,8 +6,8 @@
 
 | Plateforme | Version | Status |
 |------------|---------|--------|
-| iOS | 1.0.8 | En review Apple |
-| Android | 1.0.8 | En review Google |
+| iOS | 1.0.8 | Soumis (review Apple) |
+| Android | 1.0.8 | Soumis (review Google) |
 | AdMob | ✓ | Actif |
 
 **Landing** : https://ninjakana.app
